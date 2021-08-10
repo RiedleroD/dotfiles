@@ -97,11 +97,11 @@ for i in groups:
 
 layouts = [
     layout.Max(),
-    layout.Stack(num_stacks=2),
+    # layout.Stack(num_stacks=2),
     # Try more layouts by unleashing below layouts.
     # layout.Bsp(),
     # layout.Columns(),
-    # layout.Matrix(),
+    layout.Matrix(),
     # layout.MonadTall(),
     # layout.MonadWide(),
     # layout.RatioTile(),
@@ -112,7 +112,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='linuxbiolinum',
+    font='libertinus sans',
     fontsize=12,
     padding=3,
 )
