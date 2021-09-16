@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Libertinus Sans, Roboto, Helvetica, Arial, sans-serif;
+    font-family:Libertinus Sans,"Font Awesome 5 Free Solid",sans-serif;
     font-size: 13px;
     min-height: 0;
 }
@@ -88,6 +88,7 @@ window#waybar.hidden {
 #battery {
     background-color: #ffffff;
     color: #000000;
+    font-family:Libertinus Sans,"Symbols Nerd Font";
 }
 
 #battery.charging {
