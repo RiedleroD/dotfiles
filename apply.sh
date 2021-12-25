@@ -1,4 +1,8 @@
 #!/usr/bin/sh
+mkdir ~/.bin_replacements
+cp .bash_profile ~/.bash_profile
+cp .bashrc ~/.bashrc
+
 mkdir ~/.config/kitty ~/.config/qtile ~/.config/sway ~/.config/waybar -p
 cp kitty.conf ~/.config/kitty/kitty.conf
 cp qtile.config.py ~/.config/qtile/config.py
