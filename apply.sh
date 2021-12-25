@@ -7,6 +7,7 @@ cp waybar.conf ~/.config/waybar/config
 cp waybar.css ~/.config/waybar/style.css
 doas cp makepkg.conf /etc/makepkg.conf
 
+mkdir /home/riedler/Pictures -p
 curl https://i.imgur.com/2kyvrtg.png > /home/riedler/Pictures/wallpaper.png
 curl https://i.imgur.com/e2rqx1O.jpg > /home/riedler/Pictures/wallpaper.jpg
 
