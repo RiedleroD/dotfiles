@@ -12,7 +12,7 @@ cp waybar.css ~/.config/waybar/style.css
 cp qt5ct.conf ~/.config/qt5ct/qt5ct.conf
 cp qt5ct_spinboxes.qss ~/.config/qt5ct/qss/spinboxes.qss
 cp kvantum.kvconfig ~/.config/Kvantum/kvantum.kvconfig
-cp ArcDarc.kvconfig ~/.config/Kvantum/ArcDark#/ArcDark#.kvconfig
+cp ArcDark.kvconfig ~/.config/Kvantum/ArcDark#/ArcDark#.kvconfig
 doas cp makepkg.conf /etc/makepkg.conf
 
 mkdir /home/riedler/Pictures -p
