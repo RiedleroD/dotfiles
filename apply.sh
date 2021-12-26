@@ -62,7 +62,7 @@ if [ ! -f ~/.local/lib/deadbeef/opus.so ]; then
 else
 	echo "skipped deadbeef opus plugin"
 fi
-if [ ! -f ~/.local/lib/deadbeef/seekbar.so ]; then
+if [ ! -f ~/.local/lib/deadbeef/ddb_misc_waveform_GTK3.so ]; then
 	mkdir /data/diyfs/ddb_waveform_seekbar -p
 	git clone "https://github.com/cboxdoerfer/ddb_waveform_seekbar.git" /data/diyfs/ddb_waveform_seekbar
 	cd /data/diyfs/ddb_waveform_seekbar
