@@ -1,5 +1,8 @@
 #!/usr/bin/sh
 
+#custom executables (mostly rerouting and fixed args)
+cp .bin_replacements ~/.bin_replacements -r
+chmod -w ~/.bin_replacements -R #for security
 #making sure all the folders exist
 mkdir ~/.config/kitty ~/.config/qtile ~/.config/sway ~/.config/waybar \
 ~/.config/qt5ct/qss ~/.config/Kvantum/ArcDark# ~/.config/gtk-2.0 \

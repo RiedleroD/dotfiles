@@ -1,0 +1,2 @@
+#!/usr/bin/sh
+env -u GDK_BACKEND /usr/bin/teams-for-linux $@ --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer

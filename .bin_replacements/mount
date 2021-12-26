@@ -1,0 +1,2 @@
+#!/usr/bin/sh
+/usr/bin/mount "$@" && canberra-gtk-play -i device-added

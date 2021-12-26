@@ -1,0 +1,2 @@
+#!/usr/bin/sh
+/data/diyfs/flameshot/build/src/flameshot "$@"

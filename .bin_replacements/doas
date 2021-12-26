@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+echo -en "\a"
+/usr/bin/doas "$@"
