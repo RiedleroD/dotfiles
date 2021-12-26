@@ -1,12 +1,12 @@
 #!/usr/bin/sh
 
 #custom executables (mostly rerouting and fixed args)
-cp .bin_replacements ~/.bin_replacements -r
+cp .bin_replacements ~/ -r
 chmod -w ~/.bin_replacements -R #for security
 #making sure all the folders exist
 mkdir ~/.config/kitty ~/.config/qtile ~/.config/sway ~/.config/waybar \
 ~/.config/qt5ct/qss ~/.config/Kvantum/ArcDark# ~/.config/gtk-2.0 \
-~/.config/gtk-3.0 ~/.config/flameshot -p
+~/.config/gtk-3.0 ~/.config/flameshot ~/.config/fontconfig -p
 #shell configs
 cp .bash_profile ~/.bash_profile
 cp .bashrc ~/.bashrc
