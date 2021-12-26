@@ -6,7 +6,7 @@ chmod -w ~/.bin_replacements -R #for security
 #making sure all the folders exist
 mkdir ~/.config/kitty ~/.config/qtile ~/.config/sway ~/.config/waybar \
 ~/.config/qt5ct/qss ~/.config/Kvantum/ArcDark# ~/.config/gtk-2.0 \
-~/.config/gtk-3.0 -p
+~/.config/gtk-3.0 ~/.config/flameshot -p
 #shell configs
 cp .bash_profile ~/.bash_profile
 cp .bashrc ~/.bashrc
@@ -31,6 +31,7 @@ gsettings set "$gnome_schema" font-name "Libertinus Sans 11"
 #userspace configs
 cp pcmanfm.conf ~/.config/pcmanfm/default/pcmanfm.conf
 cp kitty.conf ~/.config/kitty/kitty.conf
+cp flameshot.ini ~/.config/flameshot/flameshot.ini
 #package compilation config
 doas cp makepkg.conf /etc/makepkg.conf
 #wallpapers
