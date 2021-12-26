@@ -34,6 +34,12 @@ cp fonts.conf ~/.config/fontconfig/fonts.conf
 cp pcmanfm.conf ~/.config/pcmanfm/default/pcmanfm.conf
 cp kitty.conf ~/.config/kitty/kitty.conf
 cp flameshot.ini ~/.config/flameshot/flameshot.ini
+#Music
+mkdir ~/Music/RYTD -p
+git clone https://github.com/RiedleroD/RYTD.git ~/Music/RYTD
+cp playlist.rpl ~/Music/default.rpl
+cp .rytdconf ~/Music/RYTD/.rytdconf
+python3 /home/riedler/Music/RYTD/rytd.py 
 #package compilation config
 doas cp makepkg.conf /etc/makepkg.conf
 #wallpapers
