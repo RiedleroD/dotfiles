@@ -85,9 +85,9 @@ else
 fi
 #package compilation config
 if cmp -s -- makepkg.conf /etc/makepkg.conf; then
-	doas cp makepkg.conf /etc/makepkg.conf
-else
 	echo "skipped makepkg.conf"
+else
+	doas cp makepkg.conf /etc/makepkg.conf
 fi
 #wallpapers
 mkdir /home/riedler/Pictures -p
