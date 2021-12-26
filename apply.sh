@@ -39,14 +39,14 @@ cp flameshot.ini ~/.config/flameshot/flameshot.ini
 cp deadbeef.conf ~/.config/deadbeef/config
 cp playlist0.dbpl ~/.config/deadbeef/playlists/0.dbpl
 cp playlist1.dbpl ~/.config/deadbeef/playlists/1.dbpl
-if [ ! -f ~/.local/lib/deadbeef/discord_presence.so ] then
+if [ ! -f ~/.local/lib/deadbeef/discord_presence.so ]; then
 	curl "https://deac-ams.dl.sourceforge.net/project/deadbeef/plugins/x86_64/ddb_discord_presence-1.8-linux-x86_64.zip" > /tmp/ddb_discord_presence.zip
 	unzip /tmp/ddb_discord_presence.zip -d ~/.local/lib/deadbeef/
 	mv ~/.local/lib/deadbeef/plugins/discord_presence.so ~/.local/lib/deadbeef/discord_presence.so
 	rm ~/.local/lib/deadbeef/plugins/ -d
 	rm /tmp/ddb_discord_presence.zip
 fi
-if [ ! -f ~/.local/lib/deadbeef/opus.so ] then
+if [ ! -f ~/.local/lib/deadbeef/opus.so ]; then
 	mkdir /data/diyfs/ddb_opus_plugin -p
 	git clone "https://bitbucket.org/Lithopsian/deadbeef-opus.git" /data/diyfs/ddb_opus_plugin
 	cd /data/diyfs/ddb_opus_plugin
@@ -54,7 +54,7 @@ if [ ! -f ~/.local/lib/deadbeef/opus.so ] then
 	mv ./opus.so ~/.local/lib/deadbeef/
 	cd ~/Scripts/dotfiles
 fi
-if [ ! -f ~/.local/lib/deadbeef/seekbar.so ] then
+if [ ! -f ~/.local/lib/deadbeef/seekbar.so ]; then
 	mkdir /data/diyfs/ddb_waveform_seekbar -p
 	git clone "https://github.com/cboxdoerfer/ddb_waveform_seekbar.git" /data/diyfs/ddb_waveform_seekbar
 	cd /data/diyfs/ddb_waveform_seekbar
