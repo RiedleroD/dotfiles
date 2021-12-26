@@ -28,6 +28,8 @@ gsettings set "$gnome_schema" gtk-theme "Arc-Dark"
 gsettings set "$gnome_schema" icon-theme "Papirus-Dark"
 gsettings set "$gnome_schema" cursor-theme "bloom"
 gsettings set "$gnome_schema" font-name "Libertinus Sans 11"
+#font configs
+cp fonts.conf ~/.config/fontconfig/fonts.conf
 #userspace configs
 cp pcmanfm.conf ~/.config/pcmanfm/default/pcmanfm.conf
 cp kitty.conf ~/.config/kitty/kitty.conf
