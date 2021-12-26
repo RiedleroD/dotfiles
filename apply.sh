@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 
 #custom executables (mostly rerouting and fixed args)
-if [ ! -f ~/.bin_replacements ]; then
+if [ ! -d ~/.bin_replacements ]; then
 	cp .bin_replacements ~/ -r
 	chmod -w ~/.bin_replacements -R #for security
 else
@@ -74,7 +74,7 @@ else
 	echo "skipped deadbeef waveform seekbar plugin"
 fi
 #Music
-if [ ! -f ~/Music/RYTD ]; then
+if [ ! -d ~/Music/RYTD ]; then
 	mkdir ~/Music/RYTD -p
 	git clone https://github.com/RiedleroD/RYTD.git ~/Music/RYTD
 	cp playlist.rpl ~/Music/default.rpl
