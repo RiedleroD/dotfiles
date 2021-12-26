@@ -20,6 +20,11 @@ cp ArcDark.kvconfig ~/.config/Kvantum/ArcDark#/ArcDark#.kvconfig
 cp .gtkrc-2.0 ~/.gtkrc-2.0
 cp gtk2-filechooser.ini ~/.config/gtk-2.0/gtkfilechooser.ini
 cp gtk3.ini ~/.config/gtk-3.0/settings.ini
+gnome_schema="org.gnome.desktop.interface"
+gsettings set "$gnome_schema" gtk-theme "Arc-Dark"
+gsettings set "$gnome_schema" icon-theme "Papirus-Dark"
+gsettings set "$gnome_schema" cursor-theme "bloom"
+gsettings set "$gnome_schema" font-name "Libertinus Sans 11"
 #userspace configs
 cp pcmanfm.conf ~/.config/pcmanfm/default/pcmanfm.conf
 cp kitty.conf ~/.config/kitty/kitty.conf
