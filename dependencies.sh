@@ -4,7 +4,7 @@ dex pcmanfm brightnessctl nwg-menu deadbeef-git exa lxappearance qt5ct \
 kvantum-qt5 kvantum-theme-arc arc-gtk-theme papirus-icon-theme \
 deepin-icon-theme pipewire pipewire-pulse pipewire-jack-dropin pipewire-alsa \
 pipewire-v4l2 pipewire-media-session helvum gst-plugin-pipewire youtube-dl \
-flameshot ttf-joypixels opusfile engrampa --needed
+flameshot ttf-joypixels opusfile engrampa p7zip unrar --needed
 
 python -m ensurepip
 pip3 install mutagen
