@@ -89,6 +89,12 @@ if cmp -s -- makepkg.conf /etc/makepkg.conf; then
 else
 	doas cp makepkg.conf /etc/makepkg.conf
 fi
+#package manager config
+if cmp -s -- pacman.conf /etc/pacman.conf; then
+	echo "skipped pacman.conf"
+else
+	doas cp pacman.conf /etc/pacman.conf
+fi
 #wallpapers
 mkdir /home/riedler/Pictures -p
 if [ ! -f ~/Pictures/wallpaper.png ]; then
