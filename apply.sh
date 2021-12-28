@@ -25,6 +25,7 @@ cp qt5ct.conf ~/.config/qt5ct/qt5ct.conf
 cp qt5ct_spinboxes.qss ~/.config/qt5ct/qss/spinboxes.qss
 cp kvantum.kvconfig ~/.config/Kvantum/kvantum.kvconfig
 cp ArcDark.kvconfig ~/.config/Kvantum/ArcDark#/ArcDark#.kvconfig
+cp KvArcDark.kvconfig ~/.config/Kvantum/KvArcDark#/KvArcDark#.kvconfig
 cp .gtkrc-2.0 ~/.gtkrc-2.0
 cp gtk2-filechooser.ini ~/.config/gtk-2.0/gtkfilechooser.ini
 cp gtk3.ini ~/.config/gtk-3.0/settings.ini
