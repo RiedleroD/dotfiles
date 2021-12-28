@@ -39,6 +39,7 @@ cp fonts.conf ~/.config/fontconfig/fonts.conf
 cp pcmanfm.conf ~/.config/pcmanfm/default/pcmanfm.conf
 cp kitty.conf ~/.config/kitty/kitty.conf
 cp flameshot.ini ~/.config/flameshot/flameshot.ini
+cp kateconfs/* -r ~/.config/
 #deadbeef config + playlists + plugins
 cp deadbeef.conf ~/.config/deadbeef/config
 cp playlist0.dbpl ~/.config/deadbeef/playlists/0.dbpl

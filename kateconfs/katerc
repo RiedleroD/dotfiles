@@ -1,0 +1,167 @@
+[General]
+Close After Last=false
+Config Revision=10
+Days Meta Infos=30
+Expand Tabs=false
+Modified Notification=true
+Quick Open List Mode=0
+Quick Open Search Mode=0
+Quickopen List Mode=true
+Recent File List Entry Count=10
+Restore Window Configuration=true
+Save Meta Infos=true
+Show Full Path in Title=false
+Show Menu Bar=true
+Show Status Bar=true
+Show Tab Bar=true
+Show Tabs Close Button=true
+Show output view for message type=1
+Startup Session=new
+Stash new unsaved files=true
+Stash unsaved file changes=false
+Tab Double Click New Document=true
+Tab Middle Click Close Document=true
+Tabbar Tab Limit=0
+
+[KPropertiesDialog]
+eDP-1 Window-Maximized 1366x768=true
+
+[KTextEditor Document]
+Allow End of Line Detection=true
+BOM=false
+Backup Local=false
+Backup Prefix=
+Backup Remote=false
+Backup Suffix=~
+Camel Cursor=false
+Encoding=UTF-8
+End of Line=0
+Indent On Backspace=true
+Indent On Tab=true
+Indent On Text Paste=false
+Indentation Mode=normal
+Indentation Width=4
+Keep Extra Spaces=false
+Line Length Limit=10000
+Newline at End of File=false
+On-The-Fly Spellcheck=false
+Overwrite Mode=false
+PageUp/PageDown Moves Cursor=false
+Remove Spaces=0
+ReplaceTabsDyn=false
+Show Spaces=1
+Show Tabs=true
+Smart Home=false
+Swap Directory=
+Swap File Mode=0
+Swap Sync Interval=15
+Tab Handling=2
+Tab Width=4
+Trailing Marker Size=1
+Word Wrap=false
+Word Wrap Column=80
+
+[KTextEditor Editor]
+Encoding Prober Type=1
+Fallback Encoding=ISO 8859-15
+
+[KTextEditor Renderer]
+Animate Bracket Matching=true
+Auto Color Theme Selection=false
+Color Theme=ayu Dark
+Font=Libertinus Mono,9,-1,5,50,0,0,0,0,0
+Show Indentation Lines=true
+Show Whole Bracket Expression=false
+Word Wrap Marker=false
+
+[KTextEditor View]
+Allow Mark Menu=true
+Auto Brackets=false
+Auto Center Lines=0
+Auto Completion=false
+Auto Completion Preselect First Entry=false
+Backspace Remove Composed Characters=false
+Bookmark Menu Sorting=0
+Bracket Match Preview=false
+Chars To Enclose Selection=
+Default Mark Type=1
+Dynamic Word Wrap=false
+Dynamic Word Wrap Align Indent=80
+Dynamic Word Wrap At Static Marker=false
+Dynamic Word Wrap Indicators=1
+Dynamic Wrap not at word boundaries=false
+Fold First Line=false
+Folding Bar=false
+Folding Preview=false
+Icon Bar=false
+Input Mode=0
+Keyword Completion=true
+Line Modification=false
+Line Numbers=true
+Maximum Search History Size=100
+Mouse Paste At Cursor Position=false
+Persistent Selection=false
+Scroll Bar Marks=false
+Scroll Bar Mini Map All=true
+Scroll Bar Mini Map Width=60
+Scroll Bar MiniMap=true
+Scroll Bar Preview=true
+Scroll Past End=false
+Search/Replace Flags=1036
+Show Line Count=true
+Show Scrollbars=1
+Show Word Count=true
+Smart Copy Cut=true
+Text Drag And Drop=true
+User Sets Of Chars To Enclose Selection=
+Vi Input Mode Steal Keys=false
+Vi Relative Line Numbers=false
+Word Completion=false
+Word Completion Minimal Word Length=3
+Word Completion Remove Tail=true
+
+[KTextEditor::Search]
+Replace History=,class="\\\\1",class="n \\\\1,class="g \\\\1,class="m \\\\1,fill="none" stroke="#000" stroke-width="0.208071",fill="none",fill="none" stroke="#000" stroke-width="0.208076",class="l \\\\1,class="k \\\\1,class="j \\\\1,class="i \\\\1,class="h \\\\1,class="f \\\\1,class="e \\\\1,class="d \\\\1,class="c \\\\1,class="b \\\\1,class="a \\\\1,<\\\\1 class="a \\\\2,<\\\\1 class="",<path class="",stroke="#FFF",fill="#FFF",fill="#FFF" fill-rule="evenodd" stroke-width="0.228184",fill="#FFF" ,stroke="#000",fill="none" stroke="#000" stroke-width="0.184957",\\\\1 ,"/>, ,fill="url(#lg)",fill="#000" stroke-width="0.22818361",fill="#000" fill-rule="evenodd" stroke-width="0.22818361",fill="#000" fill-rule="evenodd" stroke-width=0.22818361",fill="none" stroke="#000" stroke-width="0.18495651",fill="#757374" stroke="#000" stroke-width="0.38533366",fill="#2246ff" stroke-width="0.22818361",fill="none" fill-rule="evenodd" stroke="#FFF" stroke-width="0.30825326",fill="none" stroke="#FFF" stroke-width="0.30825326",fill="none" stroke="#FFF" stroke-width="0.30505869",fill="#ffffff" stroke-width="0.22818361",fill="#2f2930",fill="#2f2930" stroke-width="0.61652929",fill="#2f2930" stroke="#FFF" stroke-width="0.61652929",fill:#2f2930;stroke:#FFF;stroke-width:0.61652929,a,lg,<path ,<path,a.5.5 0 000 1a.5.5 0 000-1z,a.5.5 0 000 1a.5.5 0 000-1,M,zm-206.643 -387.348,(\\\\1),(i),{val: i,{val: s,{val: u,&,gebid,addTowerSeries,addOption,value="" selected disabled hidden,{link}],[\\\\href,{link},{[link]},\\\\\\\\href,}{source}}\\\\n},\\\\href{source},retryButton,"\\,"Ability":","\\,"Type":",[{"Height":",{"Height":",{"Height":,\\\\t \\\\["PROJECT OBLIVION,"\\,"Weight":","\\,"Size":",\\,"Class":",\\,"Sex":",\\,"Sex:","\\,"Class":,"\\,\\\\n\\\\t {","\\,"Sex":,\\,\\\\n\\\\t {"Name":",\\,\\\\n{,["PROJECT OBLIVION,step_size,array_size,}\\,\\\\n{,&self,&mut self,self:Pin<Self>,self:Pin<&mut Self>,userapp-ffplay.desktop,\\\\t,woff2-variants,↑
+Search History=../,e,pcm,k,b,j, class="d",class="k j g" ,class="m l g" ,class="n g m" ,class="n m g" ,class="f d" ,class="e c b" ,class="h d a" ,class="d a" ,class="d a",class="" ,class="([^"]*) ",class="([^\\\\n]*) stroke-width="0.155331",class="([^\\\\n]*) stroke-width="0.208076",class="([^\\\\n]*) stroke="#000",class="([^\\\\n]*) fill="none",style="fill:none;stroke:#000000;stroke-width:0.208071;stroke-linecap:round",style=",style="fill:none;stroke:#000000;stroke-width:0.208076",class="([^\\\\n]*) fill="#b6b8be",class="([^\\\\n]*) stroke-width="0.154131",class="([^\\\\n]*) stroke-width="0.184957",class="([^\\\\n]*) fill="#757374",class="([^\\\\n]*) stroke-width="0.385334",class="([^\\\\n]*) (stroke-width="0.305059"|stroke-width="0.308253"),class="([^\\\\n]*) fill-rule="evenodd",class="([^\\\\n]*) fill="#2246ff",class="([^\\\\n]*) stroke-width="0.616529",class="([^\\\\n]*) stroke-width="0.61652929",class="([^\\\\n]*) stroke-width="0.228184",class="([^\\\\n]*) fill="#2f2930",class="([^\\\\n]*) stroke="#FFF",class="([^\\\\n]*) fill="#FFF",class="([^\\\\n]*)fill="#FFF" ,class="([^\\\\n]*)fill="#FFF",<(rect|path),<(\\\\w+),<path,stroke="#ffffff",fill="#ffffff",style="fill:#ffffff;fill-rule:evenodd;stroke-width:0.228184",stroke="#000000",style="fill:none;stroke:#000000;stroke-width:0.184957;stroke-linecap:round",style="fill:none;stroke:#000000;stroke-width:0.208076;stroke-linecap:round", id="rect\\\\d+", id="path\\\\d+",([^>])\\\\n[\\\\n\\\\t ]*,([^>])\\\\n[\\\\n ]*,[^>]\\\\n[\\\\n ]*,<path[\\\\n ]*," />,[\\\\n ]*fill="#000000"[\\\\n ]*,[\\\\n ]*fill="#000"[\\\\n ]*,style="fill:url(#lg);stroke-width:0.22818361",style="fill:#000000;stroke:#000000;stroke-width:0.15533143;stroke-linecap:round",style="fill:#000000;stroke-width:0.22818361",style="fill:#000000;fill-rule:evenodd;stroke-width:0.22818361",style="fill:none;stroke:#000000;stroke-width:0.18495651",style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.15413119",style="fill:#757374;stroke:#000000;stroke-width:0.38533366;stroke-linecap:round",style="fill:#2246ff;stroke-width:0.22818361",style="fill:#2f2930;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.18729767",style="fill:none;stroke:#ffffff;stroke-width:0.30825326",style="fill:none;stroke:#ffffff;stroke-width:0.30505869;stroke-linecap:round",style="fill:#ffffff;stroke-width:0.22818361",style="fill:#2f2930;stroke:#FFF;stroke-width:0.61652929",fill:#2f2930;stroke:#ffffff;stroke-width:0.61652929;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13.65400028,linearGradient\\\\d{4},linearGradient,linearGradient4036,[\\\\n ]*sodipodi:nodetypes=".*?"[\\\\n ]*,[\\\\n ]*sodipodi:nodetypes=".*?"[\\\\n ],[\\\\n ]*sodipodi:nodetypes=".*?",<path[\\\\n ]*id=".*?"[\\\\n ]*,<path[\\\\n ]*id=".*?",<path[\\\\n ]*id=",<path[\\\\n ]*id="",\n       inkscape:connector-curvature="0" ,\\\\n       inkscape:connector-curvature="0" ,       inkscape:connector-curvature="0" ,\n       inkscape:connector-curvature="0",c.*?z,m[^M]+M,m,zM122.353 64,zM122,docs,doc,\\\\{val: (.{3}|.{2})\\\\},\\\\{val: (.+?)\\\\},\\\\{val: (.{3})\\\\},\\\\{val: .{3}\\\\},\\\\{val: .{2-3}\\\\},{i}
+
+[Konsole]
+AutoSyncronize=true
+KonsoleEscKeyBehaviour=true
+KonsoleEscKeyExceptions=vi,vim,nvim
+RemoveExtension=false
+RunPrefix=
+SetEditor=false
+
+[MainWindow]
+State=AAAA/wAAAAD9AAAAAAAABVYAAAK/AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+eDP-1 Height 1366x768=768
+eDP-1 Width 1366x768=1366
+eDP-1 Window-Maximized 1366x768=true
+eDP-1 XPosition 1366x768=0
+eDP-1 YPosition 1366x768=0
+eDP1 Height 1366x768=731
+eDP1 Width 1366x768=1366
+eDP1 XPosition 1366x768=0
+eDP1 YPosition 1366x768=0
+
+[Shortcut Schemes]
+Current Scheme=Default
+
+[UiSettings]
+ColorScheme=KvArcDark
+
+[filetree]
+editShade=178,218,246
+listMode=false
+shadingEnabled=false
+showFullPathOnRoots=false
+sortRole=259
+viewShade=193,207,208
+
+[project]
+autorepository=
+index=false
+indexDirectory=
+multiProjectCompletion=false
+multiProjectGoto=false
