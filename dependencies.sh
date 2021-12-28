@@ -8,7 +8,10 @@ ttf-joypixels opusfile engrampa p7zip unrar discord_arch_electron \
 steam-native-runtime teams-for-linux gimp libreoffice-fresh gthumb inkscape \
 google-chrome chromium firefox icaclient geogebra gummi wxmaxima typora-free \
 audacity carla obs-studio wlrobs lmms pavucontrol timidity++ vlc alacritty \
-htop --needed
+htop base-devel git cmake qt5-base qt5-tools qt5-x11extras libsndfile fftw \
+libvorbis lame libsamplerate libogg wine stk fluidsynth fltk libgig jack2 sdl \
+alsa-lib portaudio perl-list-moreutils perl-exporter-tiny perl-xml-parser \
+sfarkxtc --needed
 
 python -m ensurepip
 pip3 install mutagen

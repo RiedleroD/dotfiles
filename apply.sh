@@ -11,7 +11,7 @@ fi
 mkdir ~/.config/kitty ~/.config/qtile ~/.config/sway ~/.config/waybar \
 ~/.config/qt5ct/qss ~/.config/Kvantum/ArcDark# ~/.config/gtk-2.0 \
 ~/.config/gtk-3.0 ~/.config/flameshot ~/.config/fontconfig \
-~/.config/deadbeef/playlists -p
+~/.config/deadbeef/playlists ~/lmms/samples/soundfonts -p
 #shell configs
 cp .bash_profile ~/.bash_profile
 cp .bashrc ~/.bashrc
@@ -72,6 +72,25 @@ if [ ! -f ~/.local/lib/deadbeef/ddb_misc_waveform_GTK3.so ]; then
 	cd ~/Scripts/dotfiles
 else
 	echo "skipped deadbeef waveform seekbar plugin"
+fi
+#LMMS config + devel compilation
+cp ./lmmsrc.xml ~/.lmmsrc.xml
+if [ ! -d /data/diyfs/lmms ]; then
+	git clone https://github.com/LMMS/lmms.git /data/diyfs/lmms --recurse-submodules -b master
+	mkdir /data/diyfs/lmms/build
+	cd /data/diyfs/lmms/build
+	cmake .. -DCMAKE_INSTALL_PREFIX=../target/
+	make -j4
+else
+	echo "skipped lmms-git"
+fi
+#Soundfont
+if [ ! -f "~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2" ]; then
+	curl "https://download1761.mediafire.com/v9gy038xcz4g/maz5z394oog5xlm/HQ+Orchestral+Soundfont+Collection+v3.0.sfArk" \
+		> "~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sfArk"
+	sfarkxtc "~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sfArk" "~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2"
+else
+	echo "skipped soundfont"
 fi
 #Music
 if [ ! -d ~/Music/RYTD ]; then

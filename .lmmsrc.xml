@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE lmms-config-file>
+<lmms version="1.2.2">
+  <MidiAlsaRaw device="default"/>
+  <MidiJack device="lmms"/>
+  <Midialsaseq device="default"/>
+  <app nommpz="0" nanhandler="1" language="en" displaydbfs="0" openlastproject="0" nomsgaftersetup="0" configured="1" disablebackup="0"/>
+  <audioalsa channels="2" device="pipewire"/>
+  <audiojack channels="2" clientname="lmms"/>
+  <audiooss channels="2" device="/dev/dsp"/>
+  <audiopa channels="2" device="default"/>
+  <audioportaudio device="" backend=""/>
+  <audiosdl device=""/>
+  <audiosndio channels="2" device=""/>
+  <midioss device="/dev/midi"/>
+  <mixer mididev="ALSA-Sequencer (Advanced Linux Sound Architecture)" framesperaudiobuffer="1024" audiodev="JACK (JACK Audio Connection Kit)" hqaudio="1"/>
+  <paths defaultsf2="/home/riedler/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2" artwork="data:/themes/classic/" gigdir="/home/riedler/lmms/samples/gig/" backgroundartwork="/home/riedler/Pictures/wallpaper.png" vstdir="/home/riedler/lmms/plugins/vst/" stkdir="/usr/share/stk/rawwaves/" workingdir="/home/riedler/lmms/" sf2dir="/home/riedler/lmms/samples/soundfonts/" laddir="/home/riedler/lmms/plugins/ladspa/"/>
+  <tooltips disabled="1"/>
+  <ui disableautoquit="0" vstalwaysontop="1" enableautosave="1" displaywaveform="1" vstembedmethod="qt" printnotelabels="0" oneinstrumenttrackwindow="0" enablerunningautosave="0" animateafp="1" saveinterval="2" smoothscroll="0" compacttrackbuttons="0" syncvstplugins="1"/>
+  <recentfiles>
+  </recentfiles>
+</lmms>
