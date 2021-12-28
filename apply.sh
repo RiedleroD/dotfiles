@@ -9,8 +9,8 @@ else
 fi
 #making sure all the folders exist
 mkdir ~/.config/kitty ~/.config/qtile ~/.config/sway ~/.config/waybar \
-~/.config/qt5ct/qss ~/.config/Kvantum/ArcDark# ~/.config/gtk-2.0 \
-~/.config/gtk-3.0 ~/.config/flameshot ~/.config/fontconfig \
+~/.config/qt5ct/qss ~/.config/Kvantum/ArcDark# ~/.config/Kvantum/KvArcDark# \
+~/.config/gtk-2.0 ~/.config/gtk-3.0 ~/.config/flameshot ~/.config/fontconfig \
 ~/.config/deadbeef/playlists ~/lmms/samples/soundfonts -p
 #shell configs
 cp .bash_profile ~/.bash_profile
