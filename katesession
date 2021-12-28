@@ -1,0 +1,127 @@
+[Document 0]
+Bookmarks=
+Encoding=UTF-8
+Highlighting=None
+Highlighting Set By User=false
+Indentation Mode=normal
+Mode=Normal
+Mode Set By User=false
+URL=file:///home/riedler/Scripts/dotfiles/.git/COMMIT_EDITMSG
+
+[Kate Plugins]
+compilerexplorer=false
+externaltoolsplugin=true
+katebacktracebrowserplugin=false
+katebuildplugin=false
+katecloseexceptplugin=false
+katecolorpickerplugin=false
+katectagsplugin=false
+katefilebrowserplugin=false
+katefiletreeplugin=false
+kategdbplugin=false
+kategitblameplugin=false
+katekonsoleplugin=false
+kateprojectplugin=false
+katereplicodeplugin=false
+katesearchplugin=true
+katesnippetsplugin=false
+katesqlplugin=false
+katesymbolviewerplugin=false
+katexmlcheckplugin=false
+katexmltoolsplugin=false
+ktexteditorpreviewplugin=false
+latexcompletionplugin=false
+lspclientplugin=false
+tabswitcherplugin=false
+textfilterplugin=false
+
+[MainWindow0]
+Active ViewSpace=0
+Kate-MDI-H-Splitter=200,1366,200
+Kate-MDI-Sidebar-0-Splitter=0
+Kate-MDI-Sidebar-1-Splitter=0
+Kate-MDI-Sidebar-2-Splitter=0
+Kate-MDI-Sidebar-3-Splitter=0,0,0
+Kate-MDI-Sidebar-Style=2
+Kate-MDI-Sidebar-Visible=false
+Kate-MDI-ToolView-kate_plugin_katesearch-Persistent=false
+Kate-MDI-ToolView-kate_plugin_katesearch-Position=3
+Kate-MDI-ToolView-kate_plugin_katesearch-Sidebar-Position=1
+Kate-MDI-ToolView-kate_plugin_katesearch-Visible=false
+Kate-MDI-ToolView-output-Persistent=false
+Kate-MDI-ToolView-output-Position=3
+Kate-MDI-ToolView-output-Sidebar-Position=0
+Kate-MDI-ToolView-output-Visible=false
+Kate-MDI-V-Splitter=150,703,200
+State=AAAA/wAAAAD9AAAAAAAABVYAAAK/AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+eDP-1 Window-Maximized 1366x768=true
+
+[MainWindow0 Settings]
+State=AAAA/wAAAAD9AAAAAAAABVYAAAK/AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+WindowState=10
+eDP-1 Window-Maximized 1366x768=true
+
+[MainWindow0-Splitter 0]
+Children=MainWindow0-ViewSpace 0
+Orientation=2
+Sizes=675
+
+[MainWindow0-ViewSpace 0]
+Active View=file:///home/riedler/Scripts/dotfiles/.git/COMMIT_EDITMSG
+Count=1
+Documents=file:///home/riedler/Scripts/dotfiles/.git/COMMIT_EDITMSG
+View 0=file:///home/riedler/Scripts/dotfiles/.git/COMMIT_EDITMSG
+
+[MainWindow0-ViewSpace 0 file:///home/riedler/Scripts/dotfiles/.git/COMMIT_EDITMSG]
+CursorColumn=0
+CursorLine=0
+Dynamic Word Wrap=false
+JumpList=
+TextFolding=[]
+ViMarks=
+
+[Open Documents]
+Count=1
+
+[Open MainWindows]
+Count=1
+
+[Plugin:katesearchplugin:MainWindow:0]
+BinaryFiles=false
+CurrentExcludeFilter=-1
+CurrentFilter=-1
+ExcludeFilters=
+ExpandSearchResults=false
+Filters=
+FollowSymLink=false
+HiddenFiles=false
+MatchCase=false
+Place=1
+Recursive=true
+Replaces=
+Search=
+SearchDiskFiles=/home/riedler/Documents/dr_schule/2122/SEW/5a/3 Versionierungssysteme/0 Worttrainer Git Jar
+SearchDiskFiless=
+UseRegExp=false
+
+[Recent Files]
+File1[$e]=$HOME/Scripts/dotfiles/.bin_replacements/teams-shit
+File2[$e]=$HOME/Scripts/dotfiles/.bin_replacements/telegram
+File3[$e]=$HOME/Scripts/dotfiles/.bin_replacements/typora
+File4[$e]=$HOME/Scripts/dotfiles/.bin_replacements/visudo
+File5[$e]=$HOME/Scripts/dotfiles/.bin_replacements/mpv
+File6[$e]=$HOME/Scripts/dotfiles/.bin_replacements/discord
+File7[$e]=$HOME/Scripts/dotfiles/apply.sh
+File8[$e]=$HOME/Scripts/dotfiles/dependencies.sh
+File9[$e]=$HOME/Scripts/dotfiles/.git/COMMIT_EDITMSG
+Name1[$e]=teams-shit
+Name2[$e]=telegram
+Name3[$e]=typora
+Name4[$e]=visudo
+Name5[$e]=mpv
+Name6[$e]=discord
+Name7[$e]=apply.sh
+Name8[$e]=dependencies.sh
+Name9[$e]=COMMIT_EDITMSG
