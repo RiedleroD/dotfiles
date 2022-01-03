@@ -1,2 +1,2 @@
 #!/usr/bin/sh
-/usr/bin/teams-for-linux "$@" --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer
+exec /usr/bin/teams-for-linux "$@" --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer

@@ -1,0 +1,2 @@
+#!/usr/bin/sh
+/usr/bin/umount "$@" && canberra-gtk-play -i device-removed

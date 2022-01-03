@@ -1,2 +1,2 @@
 #!/usr/bin/sh
-/data/diyfs/lmms/build/lmms "$@"
+exec /data/diyfs/lmms/build/lmms "$@"
