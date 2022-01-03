@@ -11,7 +11,8 @@ fi
 mkdir ~/.config/kitty ~/.config/qtile ~/.config/sway ~/.config/waybar \
 ~/.config/qt5ct/qss ~/.config/Kvantum/ArcDark# ~/.config/Kvantum/KvArcDark# \
 ~/.config/gtk-2.0 ~/.config/gtk-3.0 ~/.config/flameshot ~/.config/fontconfig \
-~/.config/deadbeef/playlists ~/lmms/samples/soundfonts ~/.local/share/kate/ -p
+~/.config/deadbeef/playlists ~/lmms/samples/soundfonts ~/.local/share/kate/ \
+~/Templates/ -p
 #shell configs
 cp .bash_profile ~/.bash_profile
 cp .bashrc ~/.bashrc
@@ -42,6 +43,8 @@ cp kitty.conf ~/.config/kitty/kitty.conf
 cp flameshot.ini ~/.config/flameshot/flameshot.ini
 cp kateconfs/* -r ~/.config/
 cp katesession ~/.local/share/kate/anonymous.katesession
+#template files
+cp ./templates/* ~/Templates/
 #deadbeef config + playlists + plugins
 cp deadbeef.conf ~/.config/deadbeef/config
 cp playlist0.dbpl ~/.config/deadbeef/playlists/0.dbpl
