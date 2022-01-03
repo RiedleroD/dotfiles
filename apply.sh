@@ -88,6 +88,7 @@ if [ ! -d /data/diyfs/lmms ]; then
 	cmake .. -DCMAKE_INSTALL_PREFIX=../target/
 	make -j4
 	cd ~/Scripts/dotfiles
+	cp ./.lmmsrc.xml /data/diyfs/lmms/build/.lmmsrc.xml
 else
 	echo "skipped lmms-git"
 fi
