@@ -1,2 +1,0 @@
-#!/usr/bin/sh
-env -u QT_QPA_PLATFORMTHEME telegram-desktop "$@"

@@ -1,2 +1,0 @@
-#!/usr/bin/sh
-exec env -u GDK_BACKEND /usr/bin/discord "$@"
