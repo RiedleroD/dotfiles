@@ -14,6 +14,7 @@ alsa-lib portaudio perl-list-moreutils perl-exporter-tiny perl-xml-parser \
 sfarkxtc mako wireplumber grim imv blueman --needed
 
 systemctl --user enable wireplumber
+sudo systemctl enable --now bluetooth
 
 python -m ensurepip
 pip3 install mutagen
