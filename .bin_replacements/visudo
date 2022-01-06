@@ -1,2 +1,2 @@
 #!/usr/bin/sh
-EDITOR=nano /usr/bin/visudo "$@"
+EDITOR=nano exec /usr/bin/visudo "$@"

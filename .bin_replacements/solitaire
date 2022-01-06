@@ -1,2 +1,2 @@
 #!/usr/bin/sh
-wine /home/riedler/ROMs/WINDOWS/MS_Solitaire_Windows_XP/sol.exe
+exec wine /home/riedler/ROMs/WINDOWS/MS_Solitaire_Windows_XP/sol.exe "$@"
