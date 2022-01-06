@@ -23,6 +23,8 @@ cp waybar.conf ~/.config/waybar/config
 cp waybar.css ~/.config/waybar/style.css
 #notification daemon config
 cp mako.conf ~/.config/mako/config
+#bluetooth
+gsettings set org.blueman.plugins.powermanager auto-power-on false
 #qt/gtk styles
 cp qt5ct.conf ~/.config/qt5ct/qt5ct.conf
 cp qt5ct_spinboxes.qss ~/.config/qt5ct/qss/spinboxes.qss
