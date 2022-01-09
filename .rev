@@ -1,0 +1,24 @@
+#!/usr/bin/sh
+#
+# Riedler Environment Variables
+#
+
+#ignore duplicate entries in command history
+export HISTCONTROL=ignoreboth:erasedups
+#the only correct tab size
+tabs 4
+# to tell SDL where ma good stuff is
+export SDL_SOUNDFONTS="/home/riedler/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2"
+#SDL should use alsa bc jack is wack
+export SDL_AUDIODRIVER=alsa
+# fuck vim
+export VISUAL="kate -b" #this is especially funny in non-graphical environments
+export EDITOR=nano
+#toolkit styling
+export QT_QPA_PLATFORMTHEME=qt5ct
+#gtk3 needs to know where the configs lie
+export XDG_CONFIG_HOME=/home/riedler/.config
+#jawa awt needs this
+export _JAVA_AWT_WM_NONREPARENTING=1
+#set VDPAU driver for hardware acceleration (commented out for hardware compat)
+#export VDPAU_DRIVER=va_gl

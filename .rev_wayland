@@ -1,0 +1,11 @@
+#!/usr/bin/sh
+#
+# Riedler Environment Variables for Wayland
+#
+
+#pipewire needs this
+export XDG_CURRENT_DESKTOP=sway
+#setting some backends to wayland
+export GDK_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORM=wayland-egl
