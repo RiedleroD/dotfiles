@@ -1,0 +1,2 @@
+#!/usr/bin/sh
+exec /usr/bin/typora --enable-features=UseOzonePlatform --ozone-platform=wayland "$@"
