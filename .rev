@@ -9,8 +9,8 @@ export HISTCONTROL=ignoreboth:erasedups
 tabs 4
 # to tell SDL where ma good stuff is
 export SDL_SOUNDFONTS="/home/riedler/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2"
-#SDL should use alsa bc jack is wack
-export SDL_AUDIODRIVER=alsa
+#SDL2 now supports pipewire
+export SDL_AUDIODRIVER=pipewire
 # fuck vim
 export VISUAL="kate -b" #this is especially funny in non-graphical environments
 export EDITOR=nano
