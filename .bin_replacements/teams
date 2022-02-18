@@ -1,2 +1,3 @@
 #!/usr/bin/sh
-exec /usr/bin/teams-for-linux "$@" --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer
+# ozone platform is x11 and scaling is forced until electron compiles with the fixed chromium version
+exec /usr/bin/teams-for-linux "$@" /usr/bin/teams-for-linux "$@" --enable-features=UseOzonePlatform --ozone-platform=x11 --force-device-scale-factor=1

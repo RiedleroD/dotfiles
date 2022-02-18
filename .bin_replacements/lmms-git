@@ -1,2 +1,3 @@
 #!/usr/bin/sh
-exec /data/diyfs/lmms/build/lmms "$@"
+# xcb until the dragging issue is fixed
+QT_QPA_PLATFORM=xcb exec /data/diyfs/lmms/build/lmms "$@"
