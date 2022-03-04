@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+import binascii
+from os.path import isfile
+from sys import argv
+
+if isfile(argv[1]):
+        with open(argv[1],"rb") as f:
+                data = f.read()
+        print(f"read from file: {argv[1]}")
+else:
+        data = argv[1]
+        print(f"read from args: {argv[1]}")
+
+print(f"crc32sum:       {binascii.crc32(data):08X}")
