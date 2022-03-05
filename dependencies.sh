@@ -6,7 +6,7 @@ pipewire pipewire-pulse pipewire-jack pipewire-alsa pipewire-v4l2 \
 wireplumber helvum gst-plugin-pipewire youtube-dl flameshot ttf-joypixels \
 opusfile engrampa p7zip unrar discord_arch_electron steam-native-runtime \
 teams-for-linux gimp libreoffice-fresh inkscape google-chrome chromium \
-firefox gummi typora-free audacity carla \
+firefox gummi typora-free tenacity-git carla \
 obs-studio lmms pavucontrol timidity++ vlc htop base-devel \
 git cmake qt5-base qt5-tools qt5-x11extras libsndfile fftw libvorbis lame \
 libsamplerate libogg wine stk fluidsynth fltk libgig jack2 sdl alsa-lib \
