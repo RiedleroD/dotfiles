@@ -12,7 +12,7 @@ mkdir ~/.config/kitty ~/.config/qtile ~/.config/sway ~/.config/waybar \
 ~/.config/qt5ct/qss ~/.config/Kvantum/ArcDark# ~/.config/Kvantum/KvArcDark# \
 ~/.config/gtk-2.0 ~/.config/gtk-3.0 ~/.config/flameshot ~/.config/fontconfig \
 ~/.config/deadbeef/playlists ~/lmms/samples/soundfonts ~/.local/share/kate/ \
-~/Templates/ ~/.config/mako/ -p
+~/Templates/ ~/.config/mako/ ~/.config/xsettingsd/ -p
 #shell configs
 cp .bash_profile ~/.bash_profile
 cp .bashrc ~/.bashrc
@@ -21,6 +21,7 @@ cp qtile.config.py ~/.config/qtile/config.py
 cp sway.conf ~/.config/sway/config
 cp waybar.conf ~/.config/waybar/config
 cp waybar.css ~/.config/waybar/style.css
+cp xsettingsd.conf ~/.config/xsettingsd/xsettingsd.conf
 #notification daemon config
 cp mako.conf ~/.config/mako/config
 #bluetooth
