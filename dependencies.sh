@@ -10,8 +10,8 @@ firefox gummi typora-free audacity carla \
 obs-studio lmms pavucontrol timidity++ vlc htop base-devel \
 git cmake qt5-base qt5-tools qt5-x11extras libsndfile fftw libvorbis lame \
 libsamplerate libogg wine stk fluidsynth fltk libgig jack2 sdl alsa-lib \
-portaudio perl-list-moreutils perl-exporter-tiny perl-xml-parser sfarkxtc mako \
-imv blueman gnome-themes-extra gtk-engine-murrine gvfs gvfs-smb \
+perl-list-moreutils sfarkxtc mako \
+imv blueman gnome-themes-extra gtk-engine-murrine gvfs-smb \
 gvfs-mtp gvfs-nfs --needed
 
 systemctl --user enable wireplumber
