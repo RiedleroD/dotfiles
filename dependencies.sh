@@ -1,8 +1,8 @@
 paru -S xdg-user-dirs sway waybar waylock xorg-xwayland kitty \
 libertinus-font libcanberra otf-font-awesome opendoas bemenu bemenu-wayland \
-dex pcmanfm-gtk3 brightnessctl nwg-menu deadbeef-git exa lxappearance qt5ct \
+dex pcmanfm-gtk3 brightnessctl nwg-menu deadbeef-git deadbeef-pipewire-plugin-git exa lxappearance qt5ct \
 kvantum kvantum-theme-arc arc-gtk-theme papirus-icon-theme deepin-icon-theme \
-pipewire pipewire-pulse pipewire-jack-dropin pipewire-alsa pipewire-v4l2 \
+pipewire pipewire-pulse pipewire-jack pipewire-alsa pipewire-v4l2 \
 wireplumber helvum gst-plugin-pipewire youtube-dl flameshot ttf-joypixels \
 opusfile engrampa p7zip unrar discord_arch_electron steam-native-runtime \
 teams-for-linux gimp libreoffice-fresh gthumb inkscape google-chrome chromium \
