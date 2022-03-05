@@ -5,7 +5,7 @@ kvantum kvantum-theme-arc arc-gtk-theme papirus-icon-theme deepin-icon-theme \
 pipewire pipewire-pulse pipewire-jack pipewire-alsa pipewire-v4l2 \
 wireplumber helvum gst-plugin-pipewire youtube-dl flameshot ttf-joypixels \
 opusfile engrampa p7zip unrar discord_arch_electron steam-native-runtime \
-teams-for-linux gimp libreoffice-fresh gthumb inkscape google-chrome chromium \
+teams-for-linux gimp libreoffice-fresh inkscape google-chrome chromium \
 firefox icaclient geogebra gummi wxmaxima typora-free audacity carla \
 obs-studio wlrobs lmms pavucontrol timidity++ vlc htop base-devel \
 git cmake qt5-base qt5-tools qt5-x11extras libsndfile fftw libvorbis lame \
