@@ -137,7 +137,7 @@ def lwrite(*args,**kwargs):
 	lprint(*args,end="",**kwargs)
 def linput(*args):
 	lclean()
-	input(*args)
+	return input(*args)
 
 #Popen command and return stdout
 pget = lambda *args,**kwargs: run([*args],capture_output=True,**kwargs).stdout.strip().decode('utf-8')
