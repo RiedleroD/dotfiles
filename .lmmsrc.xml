@@ -14,9 +14,8 @@
   <audiosndio channels="2" device=""/>
   <midioss device="/dev/midi"/>
   <mixer mididev="ALSA-Sequencer (Advanced Linux Sound Architecture)" framesperaudiobuffer="1024" audiodev="JACK (JACK Audio Connection Kit)" hqaudio="1"/>
-  <paths defaultsf2="/home/riedler/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2" artwork="data:/themes/classic/" gigdir="/home/riedler/lmms/samples/gig/" backgroundartwork="/home/riedler/Pictures/wallpaper.png" vstdir="/home/riedler/lmms/plugins/vst/" stkdir="/usr/share/stk/rawwaves/" workingdir="/home/riedler/lmms/" sf2dir="/home/riedler/lmms/samples/soundfonts/" laddir="/home/riedler/lmms/plugins/ladspa/"/>
+  <audioengine mididev="ALSA-Sequencer (Advanced Linux Sound Architecture)" framesperaudiobuffer="1024" audiodev="JACK (JACK Audio Connection Kit)" hqaudio="1"/>
+  <paths defaultsf2="/home/riedler/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2" artwork="data:/themes/classic/" gigdir="/home/riedler/lmms/samples/gig/" backgroundartwork="/home/riedler/Pictures/wallpaper.png" vstdir="/home/riedler/lmms/plugins/vst/" stkdir="/usr/share/stk/rawwaves/" workingdir="/home/riedler/lmms/" sf2dir="/home/riedler/lmms/samples/soundfonts/" laddir="/home/riedler/lmms/plugins/ladspa/" ladspadir="/home/riedler/lmms/plugins/ladspa/" backgroundtheme="" theme="data:/themes/classic/"/>
   <tooltips disabled="1"/>
   <ui disableautoquit="0" vstalwaysontop="1" enableautosave="1" displaywaveform="1" vstembedmethod="qt" printnotelabels="0" oneinstrumenttrackwindow="0" enablerunningautosave="0" animateafp="1" saveinterval="2" smoothscroll="0" compacttrackbuttons="0" syncvstplugins="1"/>
-  <recentfiles>
-  </recentfiles>
 </lmms>
