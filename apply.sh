@@ -46,7 +46,6 @@ cp pcmanfm.conf ~/.config/pcmanfm/default/pcmanfm.conf
 cp kitty.conf ~/.config/kitty/kitty.conf
 cp flameshot.ini ~/.config/flameshot/flameshot.ini
 cp kateconfs/* -r ~/.config/
-cp katesession ~/.local/share/kate/anonymous.katesession
 #template files
 cp ./templates/* ~/Templates/
 #deadbeef config + playlists + plugins
