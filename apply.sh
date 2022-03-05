@@ -17,7 +17,6 @@ mkdir ~/.config/kitty ~/.config/qtile ~/.config/sway ~/.config/waybar \
 cp .bash_profile ~/.bash_profile
 cp .bashrc ~/.bashrc
 #WM configs
-cp qtile.config.py ~/.config/qtile/config.py
 cp sway.conf ~/.config/sway/config
 cp waybar.conf ~/.config/waybar/config
 cp waybar.css ~/.config/waybar/style.css
