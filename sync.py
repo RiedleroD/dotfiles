@@ -157,6 +157,14 @@ s_prun = lambda *args,**kwargs: prun("sudo",*args,**kwargs)
 #shell command and return stdout
 shget= lambda cmd,**kwargs: run(cmd,check=True,shell=True,capture_output=True,**kwargs).stdout.strip().decode('utf-8')
 
+#copies a file securely and forcibly
+def filecopy(src,dst,dstmode="644"):
+	try:
+		shutil.copy(src,dst)
+	except PermissionError:
+		s_prun("cp",src,dst)
+	s_prun("chmod",dstmode,dst)
+
 #asks the user yes/no and returns bool
 ask_yn = lambda prompt: linput(f"{prompt} [y/n]: ").strip().lower() == 'y'
 #asks the user sync/update/diff/omit and returns answer
@@ -185,7 +193,7 @@ def check_file(src,dst):
 			return
 		elif not exists(dst_proper):
 			if ask_yn(f"Folder not present. copy {src} to {dst}?"):
-				shutil.copy(src,dst_proper)
+				filecopy(src,dst_proper)
 			return
 		else:
 			raise Exception("Source and Destination have to be the same type: either file or folder!")
@@ -195,15 +203,15 @@ def check_file(src,dst):
 	if feq==None:
 		if ask_yn(f"File not present. copy {src} to {dst}?"):
 			ensure_parent(dst_proper)
-			shutil.copy(src,dst_proper)
+			filecopy(src,dst_proper)
 	elif not feq:
 		while True:
 			s_u_d_o = ask_sudo(f"{dst} differs from {src}.")
 			if s_u_d_o == 's':
-				shutil.copy(src,dst_proper)
+				filecopy(src,dst_proper)
 				break
 			elif s_u_d_o == 'u':
-				shutil.copy(dst_proper,src)
+				filecopy(dst_proper,src,"666")
 				break
 			elif s_u_d_o == 'd':
 				shrun(f"kitty +kitten diff {src} {dst}")
