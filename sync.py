@@ -43,6 +43,7 @@ FILES = {
 	"katerc": "~/.config/katerc",
 	#Template files
 	"./templates/": "~/Templates/",
+	#deadbeef config + playlists
 	"deadbeef.conf": "~/.config/deadbeef/config",
 	"playlist0.dbpl": "~/.config/deadbeef/playlists/0.dbpl",
 	"playlist1.dbpl": "~/.config/deadbeef/playlists/1.dbpl",
@@ -53,9 +54,15 @@ FILES = {
 	"makepkg.conf": "/etc/makepkg.conf",
 	#package manager config
 	"pacman.conf": "/etc/pacman.conf",
+	#custom executables (mostly rerouting and fixed args)
+	".bin_replacements/":"~/.bin_replacements/"
 }
 
-#TODO: add safe support for .bin_replacements
+FMODS = {
+	"~/.bin_replacements/":("755","root"),
+	"/etc/makepkg.conf":("644","root"),
+	"/etc/pacman.conf":("644","root")
+}
 
 GSETT = {
 	#bluetooth eats a lot of power, so I disabled auto-startup
@@ -145,6 +152,8 @@ def linput(*args):
 pget = lambda *args,**kwargs: run([*args],capture_output=True,**kwargs).stdout.strip().decode('utf-8')
 #Popen command and return nothing
 prun = lambda *args,**kwargs: run([*args],check=True,**kwargs)
+#Popen command with sudo and return nothing
+s_prun = lambda *args,**kwargs: prun("sudo",*args,**kwargs)
 #shell command and return stdout
 shget= lambda cmd,**kwargs: run(cmd,check=True,shell=True,capture_output=True,**kwargs).stdout.strip().decode('utf-8')
 
@@ -212,6 +221,20 @@ def are_files_equal(fn1, fp2) -> bool:
 		return hash1 == hash2
 	else:
 		return None
+
+#sets proper chmod for files
+def chmod_files():
+	for fp, mod in FMODS.items():
+		chmod_file(fp,*mod)
+def chmod_file(fp,mod,owner):
+	fp = expanduser(fp)
+	if exists(fp):
+		s_prun("chmod",mod,fp)
+		s_prun("chown",owner,fp)
+	if isdir(fp):
+		s_prun("chmod","+x",fp)
+		for fn in listdir(fp):
+			chmod_file(joinpath(fp,fn),mod,owner)
 
 """ --- GSETTINGS --- """
 
@@ -284,6 +307,7 @@ def download_sh(name,url,dst,cmd,dl_path):
 
 if __name__=="__main__":
 	check_files()
+	chmod_files()
 	check_gsettings()
 	check_downloadables()
 	#notice :)
