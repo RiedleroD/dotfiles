@@ -20,5 +20,3 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export XDG_CONFIG_HOME=/home/riedler/.config
 #jawa awt needs this
 export _JAVA_AWT_WM_NONREPARENTING=1
-#set VDPAU driver for hardware acceleration (commented out for hardware compat)
-#export VDPAU_DRIVER=va_gl

@@ -12,6 +12,8 @@ FILES = {
 	#shell configs
 	".bash_profile": "~/.bash_profile",
 	".bashrc": "~/.bashrc",
+	".rev": "~/.rev",
+	".rev_wayland": "~/.rev_wayland",
 	#desktop environment configs
 	"sway.conf": "~/.config/sway/config",#window manager
 	"waybar.conf": "~/.config/waybar/config",#taskbar
