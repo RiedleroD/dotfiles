@@ -1,13 +1,5 @@
 #!/usr/bin/sh
 
-#custom executables (mostly rerouting and fixed args)
-if [ ! -d ~/.bin_replacements ]; then
-	cp .bin_replacements ~/ -r
-	chmod -w ~/.bin_replacements -R #for security
-else
-	echo "skipped bin replacements"
-fi
-
 #deadbeef plugins
 if [ ! -f ~/.local/lib/deadbeef/discord_presence.so ]; then
 	curl "https://deac-ams.dl.sourceforge.net/project/deadbeef/plugins/x86_64/ddb_discord_presence-1.8-linux-x86_64.zip" > /tmp/ddb_discord_presence.zip
