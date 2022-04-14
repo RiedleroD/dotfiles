@@ -6,6 +6,7 @@ from subprocess import run, PIPE, call
 from os import listdir, makedirs, system as shrun
 from sys import stdout
 import shutil
+from shlex import quote as shesc
 
 #local file: destination file
 FILES = {
@@ -303,7 +304,7 @@ def select_downloadable_action(name,data,dst):
 
 def download_direct(url,dst):
 	ensure_parent(dst)
-	shrun("curl",url,"-o",dst,"--progress-bar")
+	shrun(f"curl {shesc(url)} -o {shesc(dst)} --progress-bar")
 	write("\r\033[1A\033[2K")#deleting progress bar
 
 def download_sh(name,url,dst,cmd,dl_path):
