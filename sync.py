@@ -3,7 +3,7 @@
 import hashlib
 from os.path import isfile, isdir, exists, expanduser, dirname, join as joinpath
 from subprocess import run, PIPE, call
-from os import listdir, makedirs, system as shrun
+from os import listdir, makedirs
 from sys import stdout
 import shutil
 from shlex import quote as shesc
@@ -108,7 +108,7 @@ URLS = {
 	"LMMS-git":{
 		"type"		:"git",
 		"url"		:"https://github.com/LMMS/lmms.git",
-		"clone_args"	:("--recurse-submodules","-b","master"),
+		"clone_args"	:("--recurse-submodules","-b","master","--depth=1"),
 		"dl_path"	:"/data/diyfs/lmms",
 		"build"		:"mkdir build && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../target/ && make -j0",
 		"dst"		:"/data/diyfs/lmms/build/lmms",
@@ -124,6 +124,7 @@ URLS = {
 		"type"		:"git",
 		"url"		:"https://github.com/RiedleroD/RYTD.git",
 		"dl_path"	:"~/Music/RYTD",
+		"build"		:"sleep 0",
 		"dst"		:"~/Music/RYTD/rytd.py"
 	},
 	"Wallpaper 1":{
@@ -157,6 +158,8 @@ prun = lambda *args,**kwargs: run([*args],check=True,**kwargs)
 s_prun = lambda *args,**kwargs: prun("sudo",*args,**kwargs)
 #shell command and return stdout
 shget= lambda cmd,**kwargs: run(cmd,check=True,shell=True,capture_output=True,**kwargs).stdout.strip().decode('utf-8')
+#shell command and return nothing
+shrun= lambda cmd,**kwargs: run(cmd,check=True,shell=True,capture_output=False,**kwargs)
 
 #copies a file securely and forcibly
 def filecopy(src,dst,dstmode="644"):
@@ -164,7 +167,8 @@ def filecopy(src,dst,dstmode="644"):
 		shutil.copy(src,dst)
 	except PermissionError:
 		s_prun("cp",src,dst)
-	s_prun("chmod",dstmode,dst)
+	if dstmode!=None:
+		s_prun("chmod",dstmode,dst)
 
 #asks the user yes/no and returns bool
 ask_yn = lambda prompt: linput(f"{prompt} [y/n]: ").strip().lower() == 'y'
@@ -299,6 +303,8 @@ def select_downloadable_action(name,data,dst):
 		download_direct(data["url"],dst)
 	elif typ=="sh":
 		download_sh(name,data["url"],dst,data["cmd"],expanduser(data["dl_path"]))
+	elif typ=="git":
+		download_git(name,**data)
 	else:#TODO: implement the rest of the download types
 		lprint(f"{name}: downloadable type '{typ}' not supported")
 
@@ -313,6 +319,32 @@ def download_sh(name,url,dst,cmd,dl_path):
 	ensure_parent(dst)
 	lwrite(f"running command for {name}")
 	shget(cmd,cwd=dirname(dst),env={"RS_DST":dst,"RS_DL_PATH":dl_path,"RS_URL":url})
+
+def download_git(name,url,dl_path,build,dst,src=None,clone_args=("--depth=1",),clean="",**kwargs):
+	if src:
+		if type(src)==str:
+			src=(src,)
+		if type(dst)==str:
+			dst=(dst,)
+		assert len(src)==len(dst), "differing amounts of sources and destinations"
+	if not exists(joinpath(dl_path,".git")):
+		ensure_parent(dl_path)
+		lwrite(f"{name}: cloning repo")
+		pget("git","clone",url,dl_path,*clone_args)
+	else:
+		lwrite(f"{name}: pulling updates")
+		pget("git","pull",cwd=dl_path)
+	lwrite(f"{name}: running build")
+	shget(build,cwd=dl_path)
+	if src:
+		lwrite(f"{name}: copying files")
+		for srcfn,dstfp in zip(src,dst):
+			_dstfp = expanduser(dstfp)
+			ensure_parent(_dstfp)
+			filecopy(joinpath(dl_path,srcfn),_dstfp,dstmode=None)
+	if clean:
+		lwrite(f"{name}: cleaning up")
+		shget(clean,cwd=dl_path)
 
 if __name__=="__main__":
 	check_files()
