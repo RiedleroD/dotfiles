@@ -29,6 +29,9 @@ eDP-1 Window-Maximized 1366x768=true
 [KTextEditor Document]
 Allow End of Line Detection=true
 Auto Detect Indent=true
+Auto Save=false
+Auto Save Interval=0
+Auto Save On Focus Out=false
 BOM=false
 Backup Local=false
 Backup Prefix=
@@ -71,6 +74,7 @@ Animate Bracket Matching=true
 Auto Color Theme Selection=false
 Color Theme=ayu Dark noBold
 Font=Libertinus Mono,9,-1,5,50,0,0,0,0,0
+Line Height Multiplier=1
 Show Indentation Lines=true
 Show Whole Bracket Expression=false
 Word Wrap Marker=true
@@ -109,6 +113,7 @@ Scroll Bar MiniMap=true
 Scroll Bar Preview=true
 Scroll Past End=false
 Search/Replace Flags=1036
+Show Documentation With Completion=true
 Show Focus Frame Around Editor=true
 Show Line Count=true
 Show Scrollbars=1
@@ -123,8 +128,8 @@ Word Completion Minimal Word Length=3
 Word Completion Remove Tail=true
 
 [KTextEditor::Search]
-Replace History=@\\\\1,,wortEintragList,@idk,@hhbgo,@bgohh,@hidk,@didk,get_binstring_from_numlist,this.figuren,class="\\\\1",class="n \\\\1,class="g \\\\1,class="m \\\\1,fill="none" stroke="#000" stroke-width="0.208071",fill="none",fill="none" stroke="#000" stroke-width="0.208076",class="l \\\\1,class="k \\\\1,class="j \\\\1,class="i \\\\1,class="h \\\\1,class="f \\\\1,class="e \\\\1,class="d \\\\1,class="c \\\\1,class="b \\\\1,class="a \\\\1,<\\\\1 class="a \\\\2,<\\\\1 class="",<path class="",stroke="#FFF",fill="#FFF",fill="#FFF" fill-rule="evenodd" stroke-width="0.228184",fill="#FFF" ,stroke="#000",fill="none" stroke="#000" stroke-width="0.184957",\\\\1 ,"/>, ,fill="url(#lg)",fill="#000" stroke-width="0.22818361",fill="#000" fill-rule="evenodd" stroke-width="0.22818361",fill="#000" fill-rule="evenodd" stroke-width=0.22818361",fill="none" stroke="#000" stroke-width="0.18495651",fill="#757374" stroke="#000" stroke-width="0.38533366",fill="#2246ff" stroke-width="0.22818361",fill="none" fill-rule="evenodd" stroke="#FFF" stroke-width="0.30825326",fill="none" stroke="#FFF" stroke-width="0.30825326",fill="none" stroke="#FFF" stroke-width="0.30505869",fill="#ffffff" stroke-width="0.22818361",fill="#2f2930",fill="#2f2930" stroke-width="0.61652929",fill="#2f2930" stroke="#FFF" stroke-width="0.61652929",fill:#2f2930;stroke:#FFF;stroke-width:0.61652929,a,lg,<path ,<path,a.5.5 0 000 1a.5.5 0 000-1z,a.5.5 0 000 1a.5.5 0 000-1,M,zm-206.643 -387.348,(\\\\1),(i),{val: i,{val: s,{val: u,&,gebid,addTowerSeries,addOption,value="" selected disabled hidden,{link}],[\\\\href,{link},{[link]},\\\\\\\\href,}{source}}\\\\n},\\\\href{source},retryButton,"\\,"Ability":","\\,"Type":",[{"Height":",{"Height":",{"Height":,\\\\t \\\\["PROJECT OBLIVION,"\\,"Weight":","\\,"Size":",\\,"Class":",\\,"Sex":",\\,"Sex:","\\,"Class":,"\\,\\\\n\\\\t {","\\,"Sex":,\\,\\\\n\\\\t {"Name":",\\,\\\\n{,["PROJECT OBLIVION,step_size,array_size
-Search History=bit,sound,audio,/\\\\*\\\\[\\\\[(\\\\w+)\\\\]\\\\]\\\\*/,/\\\\*\\\\[\\\\[\\\\w+\\\\]\\\\]\\\\*/,/\\\\*\\\\[\\\\[\\\\w+\\\\]\\\\],/\\\\*\\\\[\\\\[\\\\w\\\\]\\\\],/\\\\*[[\\\\w]],/*[[\\\\w]],>>>>>>>,>>>>>>,>>>,wortEintragArray,bgo,@bgo,@hidkh,@bgoh,@bgod,rect951,get_binstring_from_json,vmaf,display,resol,init,Wire,Wire.h, fill="#fff", 0\\\\d,a,0\\\\d, \\\\d0,\\\\d0,a##,veal,>>,<<<,(\\\\n|\\\\t| )*id="path\\\\d*" *,(\\\\n|\\\\t| )*id="path\\\\d* *,(\\\\n|\\\\t| )*sodipodi:nodetypes="(c|s)*" *,(\\\\n|\\\\t| )*sodipodi:nodetypes="s*" *,(\\\\n|\\\\t| )*id="path.*?" *,id=,id="path.*?",(\\\\n|\\\\t| )*id="path.*?",(\\\\n|\\\\t| )*id="path.*" *,(\\\\n|\\\\t| )*sodipodi:nodetypes=,(\\\\t| )*sodipodi:nodetypes="s*" *,[\\\\t ]*sodipodi:nodetypes="s*" *,sodipodi:nodetypes="s*",getKlam,addKl,getKlamotteB,pa,this.rechtecke,farb, \\\\n,X11,control pan,control,"0",window,exit,string,../,e,pcm,k,b,j, class="d",class="k j g" ,class="m l g" ,class="n g m" ,class="n m g" ,class="f d" ,class="e c b" ,class="h d a" ,class="d a" ,class="d a",class="" ,class="([^"]*) ",class="([^\\\\n]*) stroke-width="0.155331",class="([^\\\\n]*) stroke-width="0.208076",class="([^\\\\n]*) stroke="#000",class="([^\\\\n]*) fill="none",style="fill:none;stroke:#000000;stroke-width:0.208071;stroke-linecap:round",style=",style="fill:none;stroke:#000000;stroke-width:0.208076",class="([^\\\\n]*) fill="#b6b8be",class="([^\\\\n]*) stroke-width="0.154131",class="([^\\\\n]*) stroke-width="0.184957",class="([^\\\\n]*) fill="#757374",class="([^\\\\n]*) stroke-width="0.385334",class="([^\\\\n]*) (stroke-width="0.305059"|stroke-width="0.308253"),class="([^\\\\n]*) fill-rule="evenodd",class="([^\\\\n]*) fill="#2246ff",class="([^\\\\n]*) stroke-width="0.616529",class="([^\\\\n]*) stroke-width="0.61652929",class="([^\\\\n]*) stroke-width="0.228184",class="([^\\\\n]*) fill="#2f2930"
+Replace History=
+Search History=
 
 [Konsole]
 AutoSyncronize=true
@@ -196,7 +201,9 @@ ColorScheme=KvArcDark
 editShade=178,218,246
 listMode=false
 shadingEnabled=false
+showCloseButton=false
 showFullPathOnRoots=false
+showToolbar=true
 sortRole=259
 viewShade=193,207,208
 
