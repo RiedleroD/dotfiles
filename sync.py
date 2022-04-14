@@ -304,7 +304,7 @@ def select_downloadable_action(name,data,dst):
 
 def download_direct(url,dst):
 	ensure_parent(dst)
-	shrun(f"curl {shesc(url)} -o {shesc(dst)} --progress-bar")
+	shrun(f"curl {shesc(url)} -o {shesc(expanduser(dst))} --progress-bar")
 	write("\r\033[1A\033[2K")#deleting progress bar
 
 def download_sh(name,url,dst,cmd,dl_path):
