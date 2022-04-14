@@ -215,7 +215,7 @@ def check_file(src,dst):
 				filecopy(dst_proper,src,"666")
 				break
 			elif s_u_d_o == 'd':
-				shrun(f"kitty +kitten diff {src} {dst}")
+				shrun(f"kitty +kitten diff {shesc(src)} {shesc(expanduser(dst))}")
 				continue
 			else:
 				break
