@@ -42,6 +42,7 @@ FILES = {
 	"kate.kmessagebox": "~/.config/kate.kmessagebox",
 	"kate-externaltoolspluginrc": "~/.config/kate-externaltoolspluginrc",
 	"katerc": "~/.config/katerc",
+	"katesession":"~/.local/share/kate/anonymous.katesession",
 	#Template files
 	"./templates/": "~/Templates/",
 	#deadbeef config + playlists
