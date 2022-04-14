@@ -37,6 +37,7 @@ FILES = {
 	"kitty.conf": "~/.config/kitty/kitty.conf",#terminal
 	"flameshot.ini": "~/.config/flameshot/flameshot.ini",#screenshotter
 	"./.lmmsrc.xml": "~/.lmmsrc.xml",#LMMS - my DAW
+	"htoprc": "~/.config/htop/htoprc",
 	#stuff from kate - text editor & half an IDE
 	"kate/": "~/.config/kate/",
 	"kate.kmessagebox": "~/.config/kate.kmessagebox",
