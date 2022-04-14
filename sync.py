@@ -321,6 +321,7 @@ def download_sh(name,url,dst,cmd,dl_path):
 	shget(cmd,cwd=dirname(dst),env={"RS_DST":dst,"RS_DL_PATH":dl_path,"RS_URL":url})
 
 def download_git(name,url,dl_path,build,dst,src=None,clone_args=("--depth=1",),clean="",**kwargs):
+	dl_path = expanduser(dl_path)
 	if src:
 		if type(src)==str:
 			src=(src,)
