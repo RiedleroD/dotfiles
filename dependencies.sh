@@ -10,7 +10,7 @@ google-chrome chromium firefox tenacity-git carla obs-studio pavucontrol lmms \
 vlc timidity++ htop base-devel git cmake qt5-base qt5-tools qt5-x11extras fftw \
 libsndfile libvorbis lame libsamplerate libogg wine stk fluidsynth libgig sdl \
 fltk alsa-lib perl-list-moreutils sfarkxtc mako imv blueman gnome-themes-extra \
-gtk-engine-murrine gvfs-smb gvfs-mtp gvfs-nfs --needed
+gtk-engine-murrine gvfs-smb gvfs-mtp gvfs-nfs network-manager-applet --needed
 
 systemctl --user enable wireplumber
 sudo systemctl enable --now bluetooth
