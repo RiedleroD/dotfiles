@@ -9,6 +9,7 @@ Mode Set By User=false
 URL=
 
 [Kate Plugins]
+cmaketoolsplugin=false
 compilerexplorer=false
 externaltoolsplugin=true
 katebacktracebrowserplugin=false

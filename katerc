@@ -15,6 +15,7 @@ Show Menu Bar=true
 Show Status Bar=true
 Show Tab Bar=true
 Show Tabs Close Button=false
+Show Url Nav Bar=true
 Show output view for message type=1
 Startup Session=new
 Stash new unsaved files=true
