@@ -1,7 +1,9 @@
 [General]
+Allow Tab Scrolling=false
 Close After Last=false
 Config Revision=10
 Days Meta Infos=30
+Elide Tab Text=false
 Expand Tabs=false
 Modified Notification=true
 Quick Open List Mode=0
@@ -116,6 +118,7 @@ Scroll Past End=false
 Search/Replace Flags=1036
 Show Documentation With Completion=true
 Show Focus Frame Around Editor=true
+Show Folding Icons On Hover Only=true
 Show Line Count=true
 Show Scrollbars=1
 Show Word Count=true
