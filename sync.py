@@ -30,6 +30,8 @@ FILES = {
 	".gtkrc-2.0": "~/.gtkrc-2.0",#gtk2 is old as shit but ppl still use it
 	"gtk2-filechooser.ini": "~/.config/gtk-2.0/gtkfilechooser.ini",
 	"gtk3.ini": "~/.config/gtk-3.0/settings.ini",#for gtk3 and gtk4
+	#audio config
+	"pipewire.conf":"~/.config/pipewire/pipewire.conf",
 	#font configs
 	"fonts.conf": "~/.config/fontconfig/fonts.conf",
 	#userspace configs
