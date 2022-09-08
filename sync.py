@@ -197,7 +197,13 @@ def check_file(src,dst):
 	dst_proper = expanduser(dst)
 	if isdir(src):
 		if isdir(dst_proper):
-			for fn in listdir(src):
+			#collecting all filenames from both directories
+			filenames = listdir(src)
+			for fn in listdir(dst_proper):
+				if fn not in filenames:
+					filenames.append(fn)
+			
+			for fn in filenames:
 				check_file(joinpath(src,fn),joinpath(dst,fn))
 			return
 		elif not exists(dst_proper):
@@ -206,14 +212,19 @@ def check_file(src,dst):
 			return
 		else:
 			raise Exception("Source and Destination have to be the same type: either file or folder!")
+	elif not exists(src):
+		if ask_yn(f"File not present. copy {dst} to {src}?"):
+			ensure_parent(src)
+			filecopy(dst_proper,src)
+		return
+	elif not exists(dst_proper):
+		if ask_yn(f"File not present. copy {src} to {dst}?"):
+			ensure_parent(src)
+			filecopy(dst_proper,src)
+		return
 	
 	lwrite(f"checking file {src}")
-	feq = are_files_equal(src,dst_proper)
-	if feq==None:
-		if ask_yn(f"File not present. copy {src} to {dst}?"):
-			ensure_parent(dst_proper)
-			filecopy(src,dst_proper)
-	elif not feq:
+	if not are_files_equal(src,dst_proper):
 		while True:
 			s_u_d_o = ask_sudo(f"{dst} differs from {src}.")
 			if s_u_d_o == 's':
