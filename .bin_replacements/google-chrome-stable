@@ -1,0 +1,2 @@
+#oblivious to scaling when not using wayland
+exec /usr/bin/google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland "$@"
