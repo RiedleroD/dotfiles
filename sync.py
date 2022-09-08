@@ -117,6 +117,13 @@ URLS = {
 		"build"		:"mkdir build && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../target/ && make -j0",
 		"dst"		:"/data/diyfs/lmms/build/lmms",
 	},
+	"vspcplay":{
+		"type"		:"git",
+		"url"		:"https://github.com/raphnet/vspcplay.git",
+		"dl_path"	:"/data/diyfs/vspcplay",
+		"build"		:"make",
+		"dst"		:"/data/diyfs/vspcplay/vspcplay",
+	}
 	"Default Soundfont":{
 		"type"		:"sh",
 		"url"		:"https://download1761.mediafire.com/v9gy038xcz4g/maz5z394oog5xlm/HQ+Orchestral+Soundfont+Collection+v3.0.sfArk",

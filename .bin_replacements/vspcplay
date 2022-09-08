@@ -1,0 +1,2 @@
+#!/usr/bin/sh
+exec /data/diyfs/vspcplay/vspcplay "$@"
