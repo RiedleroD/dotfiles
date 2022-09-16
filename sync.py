@@ -86,11 +86,14 @@ GSETT = {
 #see further down, I don't feel like documenting this.
 URLS = {
 	"DeaDBeeF discord presence plugin":{
-		"type"	:"zip",
-		"url"	:"https://deac-ams.dl.sourceforge.net/project/deadbeef/plugins/x86_64/ddb_discord_presence-1.8-linux-x86_64.zip",
-		"src"	:"plugins/discord_presence.so",
-		"dst"	:"~/.local/lib/deadbeef/discord_presence.so",
-		"deps"	:("deadbeef-git","discord_arch_electron"),
+		"type"		:"git",
+		"url"		:"https://github.com/kuba160/ddb_discord_presence.git",
+		"dl_path"	:"/data/diyfs/ddb_discord_presence_plugin",
+		"tag"		:"1.8",
+		"build"		:"make",
+		"src"		:"discord_presence.so",
+		"dst"		:"~/.local/lib/deadbeef/discord_presence.so",
+		"deps"		:("deadbeef-git","discord_arch_electron"),
 	},
 	"DeaDBeeF opus plugin":{
 		"type"		:"git",
@@ -354,7 +357,7 @@ def select_downloadable_action(name,data,dst):
 	if not ask_yn(f"Download {name}?"):
 		return
 	if "deps" in data.keys():
-		s_prun("pacman","-S",*data["deps"],"--needed")
+		prun("paru","-S",*data["deps"],"--needed")
 	typ = data["type"]
 	if typ=="direct":
 		download_direct(data["url"],dst)
@@ -362,7 +365,7 @@ def select_downloadable_action(name,data,dst):
 		download_sh(name,data["url"],dst,data["cmd"],expanduser(data["dl_path"]))
 	elif typ=="git":
 		download_git(name,**data)
-	else:#TODO: implement the rest of the download types
+	else:
 		lprint(f"{name}: downloadable type '{typ}' not supported")
 
 def download_direct(url,dst):
@@ -377,7 +380,7 @@ def download_sh(name,url,dst,cmd,dl_path):
 	lwrite(f"running command for {name}")
 	shget(cmd,cwd=dirname(dst),env={"RS_DST":dst,"RS_DL_PATH":dl_path,"RS_URL":url})
 
-def download_git(name,url,dl_path,build,dst,src=None,clone_args=("--depth=1",),clean="",**kwargs):
+def download_git(name,url,dl_path,build,dst,src=None,tag=None,clone_args=("--depth=1",),clean="",**kwargs):
 	dl_path = expanduser(dl_path)
 	if src:
 		if type(src)==str:
@@ -392,6 +395,8 @@ def download_git(name,url,dl_path,build,dst,src=None,clone_args=("--depth=1",),c
 	else:
 		lwrite(f"{name}: pulling updates")
 		pget("git","pull",cwd=dl_path)
+	if tag:
+		pget("git","checkout",tag,cwd=dl_path)
 	lwrite(f"{name}: running build")
 	shget(build,cwd=dl_path)
 	if src:
@@ -426,7 +431,8 @@ def check_packages():
 		for pkg in pkgs:
 			if ask_yn(f"install {pkg}?"):
 				toinstall.append(pkg)
-	s_prun("pacman","-S",*toinstall,"--needed")
+	if len(toinstall)>0:
+		prun("paru","-S",*toinstall,"--needed")
 	
 
 if __name__=="__main__":
