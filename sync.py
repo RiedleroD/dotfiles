@@ -16,11 +16,17 @@ FILES = {
 	".rev": "~/.rev",
 	".rev_wayland": "~/.rev_wayland",
 	#desktop environment configs
-	"sway.conf": "~/.config/sway/config",#window manager
-	"waybar.conf": "~/.config/waybar/config",#taskbar
+	"sway.conf": "~/.config/sway/config",#window manager for Wayland
+	"i3.conf": "~/.config/i3/config",#window manager for X11,
+	"waybar.conf": "~/.config/waybar/config",#taskbar for wayland
 	"waybar.css": "~/.config/waybar/style.css",#-||-
-	"xsettingsd.conf": "~/.config/xsettingsd/xsettingsd.conf",#XWayland stuff
-	"mako.conf": "~/.config/mako/config",#notification demon
+	"polybar.conf": "~/.config/polybar/config.ini",#taskbar for X11
+	"mako.conf": "~/.config/mako/config",#notification daemon for Wayland
+	"dunst.conf": "~/.config/dunst/dunstrc",#notification daemon for X11
+	#X11 Stuff
+	".Xresources": "~/.Xresources",
+	".xinitrc": "~/.xinitrc",
+	"xsettingsd.conf": "~/.config/xsettingsd/xsettingsd.conf",
 	#graphical toolkit configurations
 	"qt5ct.conf": "~/.config/qt5ct/qt5ct.conf",#qt5ct redirects qt5 rendering to kvantum
 	"qt5ct_spinboxes.qss": "~/.config/qt5ct/qss/spinboxes.qss",
