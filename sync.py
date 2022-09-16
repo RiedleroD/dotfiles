@@ -90,6 +90,7 @@ URLS = {
 		"url"	:"https://deac-ams.dl.sourceforge.net/project/deadbeef/plugins/x86_64/ddb_discord_presence-1.8-linux-x86_64.zip",
 		"src"	:"plugins/discord_presence.so",
 		"dst"	:"~/.local/lib/deadbeef/discord_presence.so",
+		"deps"	:("deadbeef-git","discord_arch_electron"),
 	},
 	"DeaDBeeF opus plugin":{
 		"type"		:"git",
@@ -99,6 +100,7 @@ URLS = {
 		"src"		:"opus.so",
 		"dst"		:"~/.local/lib/deadbeef/opus.so",
 		"clean"		:"make clean",
+		"deps"		:("deadbeef-git",),
 	},
 	"DeaDBeeF waveform seekbar plugin":{
 		"type"		:"git",
@@ -108,6 +110,7 @@ URLS = {
 		"src"		:("./gtk3/ddb_misc_waveform_GTK3.so","./gtk2/ddb_misc_waveform_GTK2.so"),
 		"dst"		:("~/.local/lib/deadbeef/ddb_misc_waveform_GTK3.so","~/.local/lib/deadbeef/ddb_misc_waveform_GTK2.so"),
 		"clean"		:"make clean",
+		"deps"		:("deadbeef-git",),
 	},
 	"LMMS-git":{
 		"type"		:"git",
@@ -116,6 +119,11 @@ URLS = {
 		"dl_path"	:"/data/diyfs/lmms",
 		"build"		:"mkdir build && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../target/ && make -j0",
 		"dst"		:"/data/diyfs/lmms/build/lmms",
+		"deps"		:('libogg','libsndfile','libvorbis','lame','libsamplerate',
+					  'fftw','wine','lilv','fluidsynth','alsa-lib','qt5-base',
+					  'qt5-tools','qt5-x11extras','sdl2','libgig','lv2','stk',
+					  'fltk','perl-list-moreutils','perl-exporter-tiny',
+					  'perl-xml-parser','sdl12-compat'),
 	},
 	"vspcplay":{
 		"type"		:"git",
@@ -123,13 +131,14 @@ URLS = {
 		"dl_path"	:"/data/diyfs/vspcplay",
 		"build"		:"make",
 		"dst"		:"/data/diyfs/vspcplay/vspcplay",
-	}
+	},
 	"Default Soundfont":{
 		"type"		:"sh",
 		"url"		:"https://download1761.mediafire.com/v9gy038xcz4g/maz5z394oog5xlm/HQ+Orchestral+Soundfont+Collection+v3.0.sfArk",
 		"dl_path"	:"~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sfArk",
 		"cmd"		:"sfarkxtc \"$RS_DL_PATH\" \"$RS_DST\"",
 		"dst"		:"~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2",
+		"deps"		:('sfarkxtc'),
 	},
 	"RYTD":{
 		"type"		:"git",
@@ -150,6 +159,30 @@ URLS = {
 	},
 }
 
+PKGS = {
+	"base":[
+		'xdg-user-dirs','kitty','libertinus-font','ttf-joypixels','libcanberra',
+		'otf-font-awesome','brightnessctl','nwg-menu','lxappearance','kvantum',
+		'qt5ct','kvantum-theme-arc','arc-gtk-theme','papirus-icon-theme','exa',
+		'deepin-icon-theme','pipewire','pipewire-pulse','pipewire-jack','dex',
+		'pipewire-alsa','pipewire-v4l2','gzip','libtool','gst-plugin-pipewire',
+		'youtube-dl-git','opusfile','p7zip','unrar','sdl2','archlinux-keyring',
+		'bison','fakeroot','gnome-themes-extra','gtk-engine-murrine','gvfs-nfs',
+		'gvfs-smb','gvfs-mtp','wireplumber','bemenu','vulkan-validation-layers',
+		'network-manager-applet','htop','autoconf','automake','binutils','grep',
+		'wine','cmake','file','findutils','flex','gawk','gcc','gettext','groff',
+		'blueman','m4','make','patch','pkgconf','sed','sudo','texinfo','which',
+		'git','python-pip'],
+	"wayland":['sway','waybar','waylock','xorg-xwayland','bemenu-wayland','mako'],
+	"xorg":['i3-wm','polybar','i3lock','bemenu-x11','dunst'],
+	"userspace":[
+		'pcmanfm-gtk3','deadbeef-git','deadbeef-pipewire-plugin-git','helvum',
+		'flameshot','engrampa','discord_arch_electron','teams-for-linux','gimp',
+		'steam-native-runtime','inkscape','libreoffice-fresh','typora-free',
+		'gummi','google-chrome','chromium','firefox','carla','obs-studio','imv',
+		'pavucontrol','lmms','vlc','timidity++'],
+}
+
 def lclean():
 	stdout.write("\r\033[2K")
 def lprint(*args,**kwargs):
@@ -163,14 +196,14 @@ def linput(*args):
 
 #Popen command and return stdout
 pget = lambda *args,**kwargs: run([*args],capture_output=True,**kwargs).stdout.strip().decode('utf-8')
-#Popen command and return nothing
-prun = lambda *args,**kwargs: run([*args],check=True,**kwargs)
-#Popen command with sudo and return nothing
+#Popen command and return exit code
+prun = lambda *args,**kwargs: run([*args],check=True,**kwargs).returncode
+#Popen command with sudo and return exit code
 s_prun = lambda *args,**kwargs: prun("sudo",*args,**kwargs)
 #shell command and return stdout
 shget= lambda cmd,**kwargs: run(cmd,check=True,shell=True,capture_output=True,**kwargs).stdout.strip().decode('utf-8')
-#shell command and return nothing
-shrun= lambda cmd,**kwargs: run(cmd,check=True,shell=True,capture_output=False,**kwargs)
+#shell command and return exit code
+shrun= lambda cmd,**kwargs: run(cmd,check=True,shell=True,capture_output=False,**kwargs).returncode
 
 #copies a file securely and forcibly
 def filecopy(src,dst,dstmode="644"):
@@ -320,6 +353,8 @@ def check_downloadables():
 def select_downloadable_action(name,data,dst):
 	if not ask_yn(f"Download {name}?"):
 		return
+	if "deps" in data.keys():
+		s_prun("pacman","-S",*data["deps"],"--needed")
 	typ = data["type"]
 	if typ=="direct":
 		download_direct(data["url"],dst)
@@ -369,10 +404,39 @@ def download_git(name,url,dl_path,build,dst,src=None,clone_args=("--depth=1",),c
 		lwrite(f"{name}: cleaning up")
 		shget(clean,cwd=dl_path)
 
+""" --- PACKAGES --- """
+
+def check_packages():
+	installed_pkgs = [line.split(' ')[0] for line in pget("pacman","-Q").split("\n")]
+	missing_pkgs = {}
+	toinstall = []
+	for group,pkgs in PKGS.items():
+		lwrite(f"checking {group} for packages")
+		for pkg in pkgs:
+			if pkg not in installed_pkgs:
+				if group in missing_pkgs.keys():
+					missing_pkgs[group].append(pkg)
+				else:
+					missing_pkgs[group]=[pkg]
+					
+	for group,pkgs in missing_pkgs.items():
+		lwrite(f"{len(pkgs)} packages from group '{group}' are missing.\n")
+		if ask_yn("ignore?"):
+			continue
+		for pkg in pkgs:
+			if ask_yn(f"install {pkg}?"):
+				toinstall.append(pkg)
+	s_prun("pacman","-S",*toinstall,"--needed")
+	
+
 if __name__=="__main__":
 	check_files()
 	chmod_files()
 	check_gsettings()
 	check_downloadables()
-	#notice :)
-	print("Make sure you installed the dependencies!")
+	check_packages()
+	if ask_yn("first setup?"):
+		prun("systemctl","--user","enable","wireplumber")
+		s_prun("systemctl","enable","--now","bluetooth")
+		prun("pip3","install","mutagen")#for corr
+		print("reboot now")
