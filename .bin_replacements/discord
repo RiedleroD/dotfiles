@@ -1,2 +1,2 @@
 #!/usr/bin/sh
-exec electron16 /usr/lib/discord/app.asar --force-device-scale-factor=0.25 "$@"
+exec /usr/bin/discord --force-device-scale-factor=0.25 "$@"
