@@ -126,7 +126,7 @@ URLS = {
 		"url"		:"https://github.com/LMMS/lmms.git",
 		"clone_args"	:("--recurse-submodules","-b","master","--depth=1"),
 		"dl_path"	:"/data/diyfs/lmms",
-		"build"		:"mkdir build && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../target/ && make -j0",
+		"build"		:"mkdir build && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../target/ && make",
 		"dst"		:"/data/diyfs/lmms/build/lmms",
 		"deps"		:('libogg','libsndfile','libvorbis','lame','libsamplerate',
 					  'fftw','wine','lilv','fluidsynth','alsa-lib','qt5-base',
