@@ -132,7 +132,7 @@ URLS = {
 					  'fftw','wine','lilv','fluidsynth','alsa-lib','qt5-base',
 					  'qt5-tools','qt5-x11extras','sdl2','libgig','lv2','stk',
 					  'fltk','perl-list-moreutils','perl-exporter-tiny',
-					  'perl-xml-parser','sdl12-compat'),
+					  'perl-xml-parser','sdl12-compat','suil'),
 	},
 	"vspcplay":{
 		"type"		:"git",
