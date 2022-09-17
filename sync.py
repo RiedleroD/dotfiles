@@ -216,10 +216,15 @@ shrun= lambda cmd,**kwargs: run(cmd,check=True,shell=True,capture_output=False,*
 
 #copies a file securely and forcibly
 def filecopy(src,dst,dstmode="644"):
-	try:
-		shutil.copy(src,dst)
-	except PermissionError:
-		s_prun("cp",src,dst)
+	if isdir(src):
+		makedirs(dst)
+		for fn in listdir(src):
+			filecopy(joinpath(src,fn))
+	else:
+		try:
+			shutil.copy(src,dst)
+		except PermissionError:
+			s_prun("cp",src,dst)
 	if dstmode!=None:
 		s_prun("chmod",dstmode,dst)
 
