@@ -147,7 +147,7 @@ URLS = {
 		"dl_path"	:"~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sfArk",
 		"cmd"		:"sfarkxtc \"$RS_DL_PATH\" \"$RS_DST\"",
 		"dst"		:"~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2",
-		"deps"		:('sfarkxtc'),
+		"deps"		:('sfarkxtc',),
 	},
 	"RYTD":{
 		"type"		:"git",
