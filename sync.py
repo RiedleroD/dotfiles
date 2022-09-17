@@ -99,7 +99,7 @@ URLS = {
 		"build"		:"make",
 		"src"		:"discord_presence.so",
 		"dst"		:"~/.local/lib/deadbeef/discord_presence.so",
-		"deps"		:("deadbeef-git","discord_arch_electron"),
+		"deps"		:("deadbeef-git","discord_arch_electron","wget"),
 	},
 	"DeaDBeeF opus plugin":{
 		"type"		:"git",
