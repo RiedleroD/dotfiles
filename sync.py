@@ -230,6 +230,7 @@ def filecopy(src,dst,dstmode="644"):
 		for fn in listdir(src):
 			filecopy(joinpath(src,fn),joinpath(dst,fn),dstmode)
 	else:
+		ensure_parent(dst)
 		try:
 			shutil.copy(src,dst)
 		except PermissionError:
@@ -282,12 +283,10 @@ def check_file(src,dst):
 	elif not exists(src):
 		if ask_yn(f"File not present. copy {dst} to {src}?"):
 			#SEE: ensure_parent() for why abspath() is needed here
-			ensure_parent(abspath(src))
-			filecopy(dst_proper,src)
+			filecopy(dst_proper,abspath(src))
 		return
 	elif not exists(dst_proper):
 		if ask_yn(f"File not present. copy {src} to {dst}?"):
-			ensure_parent(dst_proper)
 			filecopy(src,dst_proper)
 		return
 	
@@ -428,7 +427,6 @@ def download_git(name,url,dl_path,build,dst,src=None,tag=None,clone_args=("--dep
 		lwrite(f"{name}: copying files")
 		for srcfn,dstfp in zip(src,dst):
 			_dstfp = expanduser(dstfp)
-			ensure_parent(_dstfp)
 			filecopy(joinpath(dl_path,srcfn),_dstfp,dstmode=None)
 	if clean:
 		lwrite(f"{name}: cleaning up")
