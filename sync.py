@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import hashlib
-from os.path import isfile, isdir, exists, expanduser, dirname, join as joinpath
+from os.path import isfile, isdir, exists, expanduser, dirname, abspath, join as joinpath
 from subprocess import run, PIPE, call
 from os import listdir, makedirs
 from sys import stdout
@@ -231,6 +231,10 @@ print("[s/u/d/o] prompts ask if you want to (s)ync to the repo, (u)pdate the rep
 #TODO: parameter to skip all questions and assume yes and sync everywhere
 
 def ensure_parent(fp):
+	#NOTE: if fp is a relative path with no directories 
+	# (e.g. ./file.txt, but without the dot), this could result in dirname()
+	# returning an empty string, which mkdir() wouldn't be able to recognize as
+	# a relative path to the current dir, raising a FileNotFoundError
 	parent = dirname(fp)
 	if not isdir(parent):
 		makedirs(parent)
@@ -263,13 +267,14 @@ def check_file(src,dst):
 			raise Exception("Source and Destination have to be the same type: either file or folder!")
 	elif not exists(src):
 		if ask_yn(f"File not present. copy {dst} to {src}?"):
-			ensure_parent(src)
+			#SEE: ensure_parent() for why abspath() is needed here
+			ensure_parent(abspath(src))
 			filecopy(dst_proper,src)
 		return
 	elif not exists(dst_proper):
 		if ask_yn(f"File not present. copy {src} to {dst}?"):
-			ensure_parent(src)
-			filecopy(dst_proper,src)
+			ensure_parent(dst_proper)
+			filecopy(src,dst_proper)
 		return
 	
 	lwrite(f"checking file {src}")
