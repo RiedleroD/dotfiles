@@ -228,7 +228,7 @@ def filecopy(src,dst,dstmode="644"):
 	if isdir(src):
 		makedirs(dst)
 		for fn in listdir(src):
-			filecopy(joinpath(src,fn))
+			filecopy(joinpath(src,fn),joinpath(dst,fn),dstmode)
 	else:
 		try:
 			shutil.copy(src,dst)
