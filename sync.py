@@ -141,9 +141,10 @@ URLS = {
 		"build"		:"make",
 		"dst"		:"/data/diyfs/vspcplay/vspcplay",
 	},
+	#from https://musescore.com/groups/young-composers-group/discuss/172224
 	"Default Soundfont":{
 		"type"		:"sh",
-		"url"		:"https://download1761.mediafire.com/v9gy038xcz4g/maz5z394oog5xlm/HQ+Orchestral+Soundfont+Collection+v3.0.sfArk",
+		"url"		:"https://download906.mediafire.com/899n5u59jpjg/maz5z394oog5xlm/HQ+Orchestral+Soundfont+Collection+v3.0.sfArk",
 		"dl_path"	:"~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sfArk",
 		"cmd"		:"sfarkxtc \"$RS_DL_PATH\" \"$RS_DST\"",
 		"dst"		:"~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2",
