@@ -246,11 +246,7 @@ print("[s/u/d/o] prompts ask if you want to (s)ync to the repo, (u)pdate the rep
 #TODO: parameter to skip all questions and assume yes and sync everywhere
 
 def ensure_parent(fp):
-	#NOTE: if fp is a relative path with no directories 
-	# (e.g. ./file.txt, but without the dot), this could result in dirname()
-	# returning an empty string, which mkdir() wouldn't be able to recognize as
-	# a relative path to the current dir, raising a FileNotFoundError
-	parent = dirname(fp)
+	parent = dirname(abspath(fp))
 	if not isdir(parent):
 		makedirs(parent)
 
@@ -282,8 +278,7 @@ def check_file(src,dst):
 			raise Exception("Source and Destination have to be the same type: either file or folder!")
 	elif not exists(src):
 		if ask_yn(f"File not present. copy {dst} to {src}?"):
-			#SEE: ensure_parent() for why abspath() is needed here
-			filecopy(dst_proper,abspath(src))
+			filecopy(dst_proper,src)
 		return
 	elif not exists(dst_proper):
 		if ask_yn(f"File not present. copy {src} to {dst}?"):
