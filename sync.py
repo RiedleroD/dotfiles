@@ -139,7 +139,8 @@ URLS = {
 		"url"		:"https://github.com/Tatsh/kate-wakatime.git",
 		"dl_path"	:"/data/diyfs/wakatime_kate",
 		"build"		:"mkdir build -p && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=/usr && make && sudo make install",
-		"dst"		:"/usr/lib/qt/plugins/ktexteditor/ktexteditor_wakatime.so"
+		"dst"		:"/usr/lib/qt/plugins/ktexteditor/ktexteditor_wakatime.so",
+		"deps"		:("extra-cmake-modules",)
 	},
 	"vspcplay":{
 		"type"		:"git",
