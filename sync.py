@@ -204,7 +204,7 @@ PKGS = {
 		'steam-native-runtime','inkscape','libreoffice-fresh','typora-free',
 		'gummi','google-chrome','chromium','firefox','carla','obs-studio','imv',
 		'pavucontrol','lmms','vlc','timidity++'],
-	"laptop":['tlp','ethtool','smartmon','slimbookbattery'],
+	"laptop":['tlp','ethtool','smartmontools','slimbookbattery'],
 }
 
 def lclean():
