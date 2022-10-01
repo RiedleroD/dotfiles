@@ -204,6 +204,7 @@ PKGS = {
 		'steam-native-runtime','inkscape','libreoffice-fresh','typora-free',
 		'gummi','google-chrome','chromium','firefox','carla','obs-studio','imv',
 		'pavucontrol','lmms','vlc','timidity++'],
+	"laptop":['tlp','ethtool','smartmon','slimbookbattery'],
 }
 
 def lclean():
@@ -467,5 +468,6 @@ if __name__=="__main__":
 	if ask_yn("first setup?"):
 		prun("systemctl","--user","enable","wireplumber")
 		s_prun("systemctl","enable","--now","bluetooth")
+		s_prun("systemctl","mask","systemd-rfkill.service","systemd-rfkill.socket")#for tlp
 		prun("pip3","install","mutagen")#for corr
 		print("reboot now")
