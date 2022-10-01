@@ -165,15 +165,20 @@ URLS = {
 		"build"		:"sleep 0",
 		"dst"		:"~/Music/RYTD/rytd.py"
 	},
-	"Wallpaper 1":{
+	"Wallpaper (Arch)":{
 		"type"	:"direct",
 		"url"	:"https://i.imgur.com/2kyvrtg.png",
-		"dst"	:"~/Pictures/wallpaper.png",
+		"dst"	:"~/Pictures/wallpaper_arch.png",
 	},
-	"Wallpaper 2":{
+	"Wallpaper (Links)":{
 		"type"	:"direct",
-		"url"	:"https://i.imgur.com/e2rqx1O.jpg",
-		"dst"	:"~/Pictures/wallpaper.jpg",
+		"url"	:"https://i.imgur.com/F9322ei.jpeg",
+		"dst"	:"~/Pictures/wallpaper_links.jpg",
+	},
+	"Wallpaper (Avatar137)":{
+		"type"	:"direct",
+		"url"	:"https://imgur.com/a/cxPOEHM",
+		"dst"	:"~/Pictures/wallpaper_avatar137.jpg",
 	},
 }
 
