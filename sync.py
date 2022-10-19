@@ -13,6 +13,7 @@ FILES = {
 	#system configs
 	"makepkg.conf": "/etc/makepkg.conf",
 	"pacman.conf": "/etc/pacman.conf",
+	"journald.conf": "/etc/systemd/journald.conf",
 	#shell configs
 	".bash_profile": "~/.bash_profile",
 	".bashrc": "~/.bashrc",
