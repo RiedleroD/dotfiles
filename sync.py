@@ -10,6 +10,9 @@ from shlex import quote as shesc
 
 #local file: destination file
 FILES = {
+	#system configs
+	"makepkg.conf": "/etc/makepkg.conf",
+	"pacman.conf": "/etc/pacman.conf",
 	#shell configs
 	".bash_profile": "~/.bash_profile",
 	".bashrc": "~/.bashrc",
@@ -61,10 +64,6 @@ FILES = {
 	#RYTD is my music synchronization script
 	"playlist.rpl": "~/Music/default.rpl",
 	".rytdconf": "~/Music/RYTD/.rytdconf",
-	#package compilation config
-	"makepkg.conf": "/etc/makepkg.conf",
-	#package manager config
-	"pacman.conf": "/etc/pacman.conf",
 	#custom executables (mostly rerouting and fixed args)
 	".bin_replacements/":"~/.bin_replacements/"
 }
