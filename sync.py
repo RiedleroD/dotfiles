@@ -14,6 +14,7 @@ FILES = {
 	"makepkg.conf": "/etc/makepkg.conf",
 	"pacman.conf": "/etc/pacman.conf",
 	"journald.conf": "/etc/systemd/journald.conf",
+	"dhcpcd.conf": "/etc/dhcpcd.conf",
 	#shell configs
 	".bash_profile": "~/.bash_profile",
 	".bashrc": "~/.bashrc",
@@ -195,7 +196,7 @@ PKGS = {
 		'network-manager-applet','htop','autoconf','automake','binutils','grep',
 		'wine','cmake','file','findutils','flex','gawk','gcc','gettext','groff',
 		'blueman','m4','make','patch','pkgconf','sed','sudo','texinfo','which',
-		'git','python-pip'],
+		'git','python-pip','dhcpcd'],
 	"wayland":['sway','waybar','waylock','xorg-xwayland','bemenu-wayland','mako'],
 	"xorg":['i3-wm','polybar','i3lock','bemenu-x11','dunst'],
 	"userspace":[
@@ -468,6 +469,7 @@ if __name__=="__main__":
 	if ask_yn("first setup?"):
 		prun("systemctl","--user","enable","wireplumber")
 		s_prun("systemctl","enable","--now","bluetooth")
+		s_prun("systemctl","enable","--now","dhcpcd")
 		s_prun("systemctl","mask","systemd-rfkill.service","systemd-rfkill.socket")#for tlp
 		prun("pip3","install","mutagen")#for corr
 		print("reboot now")
