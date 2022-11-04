@@ -35,6 +35,8 @@ FILES = {
 	#graphical toolkit configurations
 	"qt5ct.conf": "~/.config/qt5ct/qt5ct.conf",#qt5ct redirects qt5 rendering to kvantum
 	"qt5ct_spinboxes.qss": "~/.config/qt5ct/qss/spinboxes.qss",
+	"qt6ct.conf": "~/.config/qt6ct/qt6ct.conf",#qt5ct redirects qt5 rendering to kvantum
+	"qt6ct_spinboxes.qss": "~/.config/qt6ct/qss/spinboxes.qss",
 	"kvantum.kvconfig": "~/.config/Kvantum/kvantum.kvconfig",#kvantum renders qt5 stuff better
 	"ArcDark.kvconfig": "~/.config/Kvantum/ArcDark#/ArcDark#.kvconfig",
 	"KvArcDark.kvconfig": "~/.config/Kvantum/KvArcDark#/KvArcDark#.kvconfig",
@@ -187,7 +189,7 @@ PKGS = {
 	"base":[
 		'xdg-user-dirs','kitty','libertinus-font','ttf-joypixels','libcanberra',
 		'otf-font-awesome','brightnessctl','nwg-menu','lxappearance','kvantum',
-		'qt5ct','kvantum-theme-arc','arc-gtk-theme','papirus-icon-theme','exa',
+		'qt5ct','qt6ct','kvantum-theme-arc','arc-gtk-theme','papirus-icon-theme',
 		'deepin-icon-theme','pipewire','pipewire-pulse','pipewire-jack','dex',
 		'pipewire-alsa','pipewire-v4l2','gzip','libtool','gst-plugin-pipewire',
 		'youtube-dl-git','opusfile','p7zip','unrar','sdl2','archlinux-keyring',
@@ -196,7 +198,7 @@ PKGS = {
 		'network-manager-applet','htop','autoconf','automake','binutils','grep',
 		'wine','cmake','file','findutils','flex','gawk','gcc','gettext','groff',
 		'blueman','m4','make','patch','pkgconf','sed','sudo','texinfo','which',
-		'git','python-pip','dhcpcd'],
+		'git','python-pip','dhcpcd','exa'],
 	"wayland":['sway','waybar','waylock','xorg-xwayland','bemenu-wayland','mako'],
 	"xorg":['i3-wm','polybar','i3lock','bemenu-x11','dunst'],
 	"userspace":[
