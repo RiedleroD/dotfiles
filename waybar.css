@@ -6,6 +6,11 @@
     font-size: 13px;
     min-height: 0;
 }
+label:disabled,
+button:disabled{/*see issue #1741*/
+  color: inherit;
+  background-image: none;
+}
 
 window#waybar {
     background-color: rgba(43, 48, 59, 0.5);
@@ -47,22 +52,10 @@ window#waybar.hidden {
     border-bottom: 3px solid #ffffff;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#mpd {
+widget>*{
     padding: 0 2px;
     margin: 0 0;
-    color: #ffffff;
+    color: #FFF;
 }
 
 #window,
@@ -87,12 +80,12 @@ window#waybar.hidden {
 
 #battery {
     background-color: #ffffff;
-    color: #000000;
+    color: #000;
     font-family:Libertinus Sans,"Symbols Nerd Font";
 }
 
 #battery.charging {
-    color: #ffffff;
+    color: #FFF;
     background-color: #26A65B;
 }
 
@@ -172,6 +165,9 @@ label:focus {
 
 #tray {
     background-color: #64727D;
+}
+#tray *{
+    padding:0;
 }
 
 #idle_inhibitor {
