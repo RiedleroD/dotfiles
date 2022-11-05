@@ -199,7 +199,8 @@ PKGS = {
 		'wine','cmake','file','findutils','flex','gawk','gcc','gettext','groff',
 		'blueman','m4','make','patch','pkgconf','sed','sudo','texinfo','which',
 		'git','python-pip','dhcpcd','exa'],
-	"wayland":['sway','waybar','waylock','xorg-xwayland','bemenu-wayland','mako'],
+	"wayland":['sway','waybar','waylock','xorg-xwayland','bemenu-wayland','mako',
+		'xdg-desktop-portal-wlr','xdg-desktop-portal-gtk'],
 	"xorg":['i3-wm','polybar','i3lock','bemenu-x11','dunst'],
 	"userspace":[
 		'pcmanfm-gtk3','deadbeef-git','deadbeef-pipewire-plugin-git','helvum',
