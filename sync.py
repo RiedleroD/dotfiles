@@ -53,6 +53,7 @@ FILES = {
 	"flameshot.ini": "~/.config/flameshot/flameshot.ini",#screenshotter
 	"./.lmmsrc.xml": "~/.lmmsrc.xml",#LMMS - my DAW
 	"htoprc": "~/.config/htop/htoprc",
+	"userChrome.css": "~/.mozilla/firefox/aec833c0.default-release/chrome/userChrome.css",#custom CSS for Firefox UI
 	#stuff from kate - text editor & half an IDE
 	"kate/": "~/.config/kate/",
 	"kate.kmessagebox": "~/.config/kate.kmessagebox",
