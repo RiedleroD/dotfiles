@@ -58,9 +58,10 @@
 	padding-top: 7px !important;
 	padding-bottom: 6px !important;
 }
-/* subtle line to separate tabs */
+/* subtle borders to separate tabs from each other and the stuff below */
 .tabbrowser-tab{
 	border-right:solid 1px var(--toolbar-field-border-color) !important;
+	border-bottom:solid 1px var(--toolbar-field-border-color) !important;
 }
 /* remove selected tab shadow*/
 #TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon,
