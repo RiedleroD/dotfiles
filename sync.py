@@ -11,6 +11,7 @@ from shlex import quote as shesc
 #local file: destination file
 FILES = {
 	#system configs
+	"linux-xanmod.conf": "~/.config/linux-xanmod/myconfig",
 	"makepkg.conf": "/etc/makepkg.conf",
 	"pacman.conf": "/etc/pacman.conf",
 	"journald.conf": "/etc/systemd/journald.conf",
