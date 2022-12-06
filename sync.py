@@ -456,7 +456,7 @@ def check_packages():
 					
 	for group,pkgs in missing_pkgs.items():
 		lwrite(f"{len(pkgs)} packages from group '{group}' are missing.\n")
-		if ask_yn("ignore?"):
+		if not ask_yn("investigate?"):
 			continue
 		for pkg in pkgs:
 			if ask_yn(f"install {pkg}?"):
