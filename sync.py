@@ -205,7 +205,7 @@ PKGS = {
 		'xdg-desktop-portal-wlr','xdg-desktop-portal-gtk','swaylock-effects'],
 	"xorg":['i3-wm','polybar','i3lock','bemenu-x11','dunst'],
 	"userspace":[
-		'pcmanfm-gtk3','deadbeef-git','deadbeef-pipewire-plugin-git','helvum',
+		'pcmanfm-gtk3','deadbeef-git','helvum',
 		'flameshot','engrampa','discord_arch_electron','teams-for-linux','gimp',
 		'steam-native-runtime','inkscape','libreoffice-fresh','typora-free',
 		'gummi','google-chrome','chromium','firefox','carla','obs-studio','imv',
