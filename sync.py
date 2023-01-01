@@ -196,7 +196,7 @@ PKGS = {
 		'pipewire-alsa','pipewire-v4l2','gzip','libtool','gst-plugin-pipewire',
 		'youtube-dl-git','opusfile','p7zip','unrar','sdl2','archlinux-keyring',
 		'bison','fakeroot','gnome-themes-extra','gtk-engine-murrine','gvfs-nfs',
-		'gvfs-smb','gvfs-mtp','wireplumber','bemenu','vulkan-validation-layers',
+		'gvfs-smb','wireplumber','bemenu','vulkan-validation-layers',
 		'network-manager-applet','htop','autoconf','automake','binutils','grep',
 		'wine','cmake','file','findutils','flex','gawk','gcc','gettext','groff',
 		'blueman','m4','make','patch','pkgconf','sed','sudo','texinfo','which',
