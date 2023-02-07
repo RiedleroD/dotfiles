@@ -1,0 +1,122 @@
+[Kate Plugins]
+cmaketoolsplugin=true
+compilerexplorer=true
+externaltoolsplugin=true
+katebacktracebrowserplugin=false
+katebuildplugin=true
+katecloseexceptplugin=false
+katecolorpickerplugin=true
+katectagsplugin=true
+katefilebrowserplugin=false
+katefiletreeplugin=false
+kategdbplugin=true
+kategitblameplugin=true
+katekonsoleplugin=false
+kateprojectplugin=true
+katereplicodeplugin=false
+katesearchplugin=true
+katesnippetsplugin=false
+katesqlplugin=false
+katesymbolviewerplugin=false
+katexmlcheckplugin=true
+katexmltoolsplugin=true
+keyboardmacrosplugin=false
+ktexteditor_wakatime=false
+ktexteditorpreviewplugin=false
+latexcompletionplugin=true
+lspclientplugin=false
+rainbowparens=false
+tabswitcherplugin=true
+textfilterplugin=false
+
+[MainWindow0]
+Active ViewSpace=0
+Kate-MDI-Sidebar-0-Bar-0-TvList=kateproject,kateprojectgit
+Kate-MDI-Sidebar-1-Bar-0-TvList=Locals and Stack
+Kate-MDI-Sidebar-2-Bar-0-TvList=
+Kate-MDI-Sidebar-3-Bar-0-TvList=output,kate_plugin_katesearch,kateprojectinfo,kate_plugin_katebuildplugin,kate_plugin_katectagsplugin,Debug View,kate_plugin_xmlcheck_ouputview
+Kate-MDI-Sidebar-Style=2
+Kate-MDI-Sidebar-Visible=true
+Kate-MDI-ToolView-Debug View-Position=3
+Kate-MDI-ToolView-Debug View-Show-Button-In-Sidebar=true
+Kate-MDI-ToolView-Debug View-Visible=false
+Kate-MDI-ToolView-Locals and Stack-Position=1
+Kate-MDI-ToolView-Locals and Stack-Show-Button-In-Sidebar=true
+Kate-MDI-ToolView-Locals and Stack-Visible=false
+Kate-MDI-ToolView-kate_plugin_katebuildplugin-Position=3
+Kate-MDI-ToolView-kate_plugin_katebuildplugin-Show-Button-In-Sidebar=true
+Kate-MDI-ToolView-kate_plugin_katebuildplugin-Visible=false
+Kate-MDI-ToolView-kate_plugin_katectagsplugin-Position=3
+Kate-MDI-ToolView-kate_plugin_katectagsplugin-Show-Button-In-Sidebar=true
+Kate-MDI-ToolView-kate_plugin_katectagsplugin-Visible=false
+Kate-MDI-ToolView-kate_plugin_katesearch-Position=3
+Kate-MDI-ToolView-kate_plugin_katesearch-Show-Button-In-Sidebar=true
+Kate-MDI-ToolView-kate_plugin_katesearch-Visible=false
+Kate-MDI-ToolView-kate_plugin_xmlcheck_ouputview-Position=3
+Kate-MDI-ToolView-kate_plugin_xmlcheck_ouputview-Show-Button-In-Sidebar=true
+Kate-MDI-ToolView-kate_plugin_xmlcheck_ouputview-Visible=false
+Kate-MDI-ToolView-kateproject-Position=0
+Kate-MDI-ToolView-kateproject-Show-Button-In-Sidebar=true
+Kate-MDI-ToolView-kateproject-Visible=false
+Kate-MDI-ToolView-kateprojectgit-Position=0
+Kate-MDI-ToolView-kateprojectgit-Show-Button-In-Sidebar=true
+Kate-MDI-ToolView-kateprojectgit-Visible=true
+Kate-MDI-ToolView-kateprojectinfo-Position=3
+Kate-MDI-ToolView-kateprojectinfo-Show-Button-In-Sidebar=true
+Kate-MDI-ToolView-kateprojectinfo-Visible=false
+Kate-MDI-ToolView-output-Position=3
+Kate-MDI-ToolView-output-Show-Button-In-Sidebar=true
+Kate-MDI-ToolView-output-Visible=false
+ToolBarsMovable=Disabled
+
+[MainWindow0 Settings]
+ToolBarsMovable=Disabled
+WindowState=10
+
+[MainWindow0-Splitter 0]
+Children=MainWindow0-ViewSpace 0
+Orientation=1
+
+[Plugin:katebuildplugin:MainWindow:0]
+NumTargets=0
+ProjectTargetSetRow=0
+Show Marks=false
+
+[Plugin:katectagsplugin:MainWindow:0]
+SessionDatabase=
+SessionNumTargets=0
+TagsGenCMD=ctags -R --c++-types=+px --extra=+q --excmd=pattern --exclude=Makefile --exclude=.
+
+[Plugin:kategdbplugin:MainWindow:0]
+alwaysFocusOnInput=false
+lastTarget=0
+redirectTerminal=false
+targetCount=1
+target_0={"args":"","file":"","target":"Target 1","workdir":""}
+version=5
+
+[Plugin:kateprojectplugin:]
+projects=
+
+[Plugin:katesearchplugin:MainWindow:0]
+BinaryFiles=false
+CurrentExcludeFilter=-1
+CurrentFilter=-1
+ExcludeFilters=
+ExpandSearchResults=false
+Filters=
+FollowSymLink=false
+HiddenFiles=false
+MatchCase=false
+Place=1
+Recursive=true
+Replaces=
+Search=
+SearchAsYouTypeAllProjects=true
+SearchAsYouTypeCurrentFile=true
+SearchAsYouTypeFolder=true
+SearchAsYouTypeOpenFiles=true
+SearchAsYouTypeProject=true
+SearchDiskFiles=
+SearchDiskFiless=
+UseRegExp=false

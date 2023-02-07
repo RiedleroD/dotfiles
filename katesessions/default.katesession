@@ -1,13 +1,3 @@
-[Document 0]
-Bookmarks=
-Encoding=UTF-8
-Highlighting=None
-Highlighting Set By User=false
-Indentation Mode=normal
-Mode=Normal
-Mode Set By User=false
-URL=
-
 [Kate Plugins]
 cmaketoolsplugin=false
 compilerexplorer=false
@@ -20,7 +10,7 @@ katectagsplugin=false
 katefilebrowserplugin=false
 katefiletreeplugin=false
 kategdbplugin=false
-kategitblameplugin=true
+kategitblameplugin=false
 katekonsoleplugin=false
 kateprojectplugin=false
 katereplicodeplugin=false
@@ -31,9 +21,9 @@ katesymbolviewerplugin=false
 katexmlcheckplugin=false
 katexmltoolsplugin=false
 keyboardmacrosplugin=false
-ktexteditor_wakatime=true
+ktexteditor_wakatime=false
 ktexteditorpreviewplugin=false
-latexcompletionplugin=false
+latexcompletionplugin=true
 lspclientplugin=false
 rainbowparens=false
 tabswitcherplugin=false
@@ -41,21 +31,17 @@ textfilterplugin=false
 
 [MainWindow0]
 Active ViewSpace=0
-Kate-MDI-Sidebar-0-Splitter=0
-Kate-MDI-Sidebar-1-Splitter=0
-Kate-MDI-Sidebar-2-Splitter=0
-Kate-MDI-Sidebar-3-Splitter=0,0,0
+Kate-MDI-Sidebar-0-Bar-0-TvList=
+Kate-MDI-Sidebar-1-Bar-0-TvList=
+Kate-MDI-Sidebar-2-Bar-0-TvList=
+Kate-MDI-Sidebar-3-Bar-0-TvList=output,kate_plugin_katesearch
 Kate-MDI-Sidebar-Style=2
 Kate-MDI-Sidebar-Visible=false
-Kate-MDI-ToolView-kate_plugin_katesearch-Persistent=false
 Kate-MDI-ToolView-kate_plugin_katesearch-Position=3
 Kate-MDI-ToolView-kate_plugin_katesearch-Show-Button-In-Sidebar=true
-Kate-MDI-ToolView-kate_plugin_katesearch-Sidebar-Position=1
 Kate-MDI-ToolView-kate_plugin_katesearch-Visible=false
-Kate-MDI-ToolView-output-Persistent=false
 Kate-MDI-ToolView-output-Position=3
 Kate-MDI-ToolView-output-Show-Button-In-Sidebar=true
-Kate-MDI-ToolView-output-Sidebar-Position=0
 Kate-MDI-ToolView-output-Visible=false
 ToolBarsMovable=Disabled
 
@@ -66,17 +52,6 @@ WindowState=10
 [MainWindow0-Splitter 0]
 Children=MainWindow0-ViewSpace 0
 Orientation=1
-
-[MainWindow0-ViewSpace 0]
-Active View=
-Count=1
-Documents=\\0
-
-[Open Documents]
-Count=1
-
-[Open MainWindows]
-Count=1
 
 [Plugin:katesearchplugin:MainWindow:0]
 BinaryFiles=false
