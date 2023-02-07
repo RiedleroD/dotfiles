@@ -2,6 +2,7 @@
 HexLengths=3,6
 NamedColors=false
 PreviewAfterColor=true
+
 [General]
 Allow Tab Scrolling=false
 Auto Hide Tabs=false
@@ -14,6 +15,7 @@ DiffWidget Show Commit Info=true
 Elide Tab Text=false
 Expand Tabs=false
 Icon size for left and right sidebar buttons=32
+Last Session=default
 Modified Notification=true
 Mouse back button action=0
 Mouse forward button action=0
@@ -22,8 +24,8 @@ Quick Open List Mode=0
 Quick Open Search Mode=0
 Quickopen List Mode=true
 Recent File List Entry Count=10
-Restore Window Configuration=true
-Save Meta Infos=true
+Restore Window Configuration=false
+Save Meta Infos=false
 Show Full Path in Title=false
 Show Menu Bar=true
 Show Status Bar=true
@@ -34,7 +36,7 @@ Show Url Nav Bar=true
 Show output view for message type=1
 Show text for left and right sidebar=false
 Show welcome view for new window=true
-Startup Session=new
+Startup Session=last
 Stash new unsaved files=true
 Stash unsaved file changes=false
 Sync section size with tab positions=false
