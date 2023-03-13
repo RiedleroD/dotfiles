@@ -54,6 +54,7 @@ FILES = {
 	"flameshot.ini": "~/.config/flameshot/flameshot.ini",#screenshotter
 	"./.lmmsrc.xml": "~/.lmmsrc.xml",#LMMS - my DAW
 	"htoprc": "~/.config/htop/htoprc",
+	".nanorc": "~/.config/nano/nanorc",
 	"userChrome.css": "~/.mozilla/firefox/aec833c0.default-release/chrome/userChrome.css",#custom CSS for Firefox UI
 	#stuff from kate - text editor & half an IDE
 	"kate/": "~/.config/kate/",
