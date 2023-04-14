@@ -1,0 +1,35 @@
+{
+    "servers": {
+	"php": {
+            "command": ["intelephense","--stdio"],
+            "url": "https://intelephense.com/",
+            "root": "."
+        },
+        "java_": {
+            "command": ["java-language-server"],
+            "url": "https://github.com/georgewfraser/java-language-server",
+            "highlightingModeRegex": "^Java$"
+        },
+        "java": {
+            "command": ["jdtls","-data","."],
+            "url": "https://github.com/eclipse/eclipse.jdt.ls",
+            "highlightingModeRegex": "^Java$"
+        },
+        "vue": {
+            "command": ["vls"],
+            "root": ".",
+            "url": "https://www.npmjs.com/package/vls"
+        },
+        "sql_": {
+            "command": ["sql-language-server","up","--method","stdio"],
+            "url": "https://github.com/joe-re/sql-language-server",
+            "rootIndicationFilePatterns": [".sqllsrc.json"],
+            "root": "."
+        },
+        "sql": {
+            "command": ["sqls","-config","./sqls.yml"],
+            "url": "https://github.com/lighttiger2505/sqls",
+            "root": "."
+        }
+    }
+}
