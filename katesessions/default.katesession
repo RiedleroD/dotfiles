@@ -1,7 +1,9 @@
 [Kate Plugins]
 cmaketoolsplugin=false
 compilerexplorer=false
-externaltoolsplugin=true
+eslintplugin=false
+externaltoolsplugin=false
+formatplugin=false
 katebacktracebrowserplugin=false
 katebuildplugin=false
 katecloseexceptplugin=false
@@ -44,10 +46,6 @@ Kate-MDI-ToolView-output-Position=3
 Kate-MDI-ToolView-output-Show-Button-In-Sidebar=true
 Kate-MDI-ToolView-output-Visible=false
 ToolBarsMovable=Disabled
-
-[MainWindow0 Settings]
-ToolBarsMovable=Disabled
-WindowState=10
 
 [MainWindow0-Splitter 0]
 Children=MainWindow0-ViewSpace 0
