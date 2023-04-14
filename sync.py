@@ -197,7 +197,7 @@ PKGS = {
 		'pipewire-alsa','pipewire-v4l2','gzip','libtool','gst-plugin-pipewire',
 		'youtube-dl-git','opusfile','p7zip','unrar','sdl2','archlinux-keyring',
 		'bison','fakeroot','gnome-themes-extra','gtk-engine-murrine','gvfs-nfs',
-		'gvfs-smb','wireplumber','bemenu','vulkan-validation-layers',
+		'gvfs-smb','wireplumber','bemenu',
 		'network-manager-applet','htop','autoconf','automake','binutils','grep',
 		'wine','cmake','file','findutils','flex','gawk','gcc','gettext','groff',
 		'blueman','m4','make','patch','pkgconf','sed','sudo','texinfo','which',
@@ -208,9 +208,9 @@ PKGS = {
 	"userspace":[
 		'pcmanfm-gtk3','deadbeef-git','helvum',
 		'flameshot','engrampa','discord_arch_electron','teams-for-linux','gimp',
-		'steam-native-runtime','inkscape','libreoffice-fresh','typora-free',
-		'gummi','google-chrome','chromium','firefox','carla','obs-studio','imv',
-		'pavucontrol','lmms','vlc','timidity++'],
+		'steam-native-runtime','inkscape','libreoffice-fresh',
+		'gummi','chromium','firefox','carla','obs-studio','imv',
+		'pavucontrol','lmms'],
 	"laptop":['tlp','ethtool','smartmontools','slimbookbattery'],
 }
 
