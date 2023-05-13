@@ -249,7 +249,7 @@ def filecopy(src,dst,dstmode="644"):
 			shutil.copy(src,dst)
 		except PermissionError:
 			s_prun("cp",src,dst)
-	if dstmode!=None:
+	if dstmode is not None:
 		s_prun("chmod",dstmode,dst)
 
 #asks the user yes/no and returns bool
