@@ -195,21 +195,21 @@ PKGS = {
 		'qt5ct','qt6ct','kvantum-theme-arc','arc-gtk-theme','papirus-icon-theme',
 		'deepin-icon-theme','pipewire','pipewire-pulse','pipewire-jack','dex',
 		'pipewire-alsa','pipewire-v4l2','gzip','libtool','gst-plugin-pipewire',
-		'youtube-dl-git','opusfile','p7zip','unrar','sdl2','archlinux-keyring',
+		'yt-dlp','opusfile','p7zip','unrar','sdl2','archlinux-keyring',
 		'bison','fakeroot','gnome-themes-extra','gtk-engine-murrine','gvfs-nfs',
 		'gvfs-smb','wireplumber','bemenu',
 		'network-manager-applet','htop','autoconf','automake','binutils','grep',
 		'wine','cmake','file','findutils','flex','gawk','gcc','gettext','groff',
 		'blueman','m4','make','patch','pkgconf','sed','sudo','texinfo','which',
-		'git','python-pip','dhcpcd','exa'],
+		'git','python-pip','dhcpcd','exa','flatpak'],
 	"wayland":['sway','waybar','xorg-xwayland','bemenu-wayland','mako','swayidle',
 		'xdg-desktop-portal-wlr','xdg-desktop-portal-gtk','swaylock-effects'],
 	"xorg":['i3-wm','polybar','i3lock','bemenu-x11','dunst'],
 	"userspace":[
-		'pcmanfm-gtk3','deadbeef-git','helvum',
-		'flameshot','engrampa','discord_arch_electron','teams-for-linux','gimp',
-		'steam-native-runtime','inkscape','libreoffice-fresh',
-		'gummi','chromium','firefox','carla','obs-studio','imv',
+		'pcmanfm-gtk3','deadbeef-git','helvum','com.github.IsmaelMartinez.teams_for_linux',
+		'flameshot','engrampa','discord_arch_electron','org.gimp.GIMP',
+		'steam-native-runtime','libreoffice-fresh','org.inkscape.Inkscape',
+		'kile','org.chromium.Chromium','firefox','carla','obs-studio','imv',
 		'pavucontrol','lmms'],
 	"laptop":['tlp','ethtool','smartmontools','slimbookbattery'],
 }
@@ -444,8 +444,10 @@ def download_git(name,url,dl_path,build,dst,src=None,tag=None,clone_args=("--dep
 
 def check_packages():
 	installed_pkgs = [line.split(' ')[0] for line in pget("pacman","-Q").split("\n")]
+	installed_pkgs += [line for line in pget("flatpak","list","--columns=application").split("\n")][1:]
 	missing_pkgs = {}
-	toinstall = []
+	toinstall_paru = []
+	toinstall_flatpak = []
 	for group,pkgs in PKGS.items():
 		lwrite(f"checking {group} for packages")
 		for pkg in pkgs:
@@ -461,9 +463,14 @@ def check_packages():
 			continue
 		for pkg in pkgs:
 			if ask_yn(f"install {pkg}?"):
-				toinstall.append(pkg)
-	if len(toinstall)>0:
-		prun("paru","-S",*toinstall,"--needed")
+				if '.' in pkg:
+					toinstall_flatpak.append(pkg)
+				else:
+					toinstall_paru.append(pkg)
+	if len(toinstall_paru)>0:
+		prun("paru","-S",*toinstall_paru,"--needed")
+	if len(toinstall_flatpak)>0:
+		prun("flatpak","install",*toinstall_flatpak,"--needed")
 	
 
 if __name__=="__main__":
