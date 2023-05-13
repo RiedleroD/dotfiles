@@ -5,14 +5,14 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source ~/.rev
+source ./.rev
 
-if [ -z ${WAYLAND_DISPLAY} ];
+if [ -z "${WAYLAND_DISPLAY}" ];
 then #X11-specific shit
   echo "enabled X11-specific shit"
 else #wayland-specific shit
   echo "enabled wayland-specific shit"
-  source ~/.rev_wayland
+  source ./.rev_wayland
 fi
 
 # aliases for common programs
