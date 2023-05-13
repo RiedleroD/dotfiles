@@ -56,6 +56,7 @@ FILES = {
 	"htoprc": "~/.config/htop/htoprc",
 	".nanorc": "~/.config/nano/nanorc",
 	"userChrome.css": "~/.mozilla/firefox/aec833c0.default-release/chrome/userChrome.css",#custom CSS for Firefox UI
+	"kilerc": "~/.config/kilerc",#kile, a latex editor
 	#stuff from kate - text editor & half an IDE
 	"kate/": "~/.config/kate/",
 	"kate.kmessagebox": "~/.config/kate.kmessagebox",
