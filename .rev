@@ -20,3 +20,5 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export XDG_CONFIG_HOME=/home/riedler/.config
 #jawa awt needs this
 export _JAVA_AWT_WM_NONREPARENTING=1
+# set java home to java version selected by archlinux-java
+export JAVA_HOME=/usr/lib/jvm/default
