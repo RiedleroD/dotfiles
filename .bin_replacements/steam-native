@@ -1,2 +1,0 @@
-#!/usr/bin/sh
-SDL_VIDEODRIVER=x11 exec /usr/bin/steam-native "$@"
