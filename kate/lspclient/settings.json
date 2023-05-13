@@ -13,7 +13,8 @@
         "java": {
             "command": ["jdtls","-data","."],
             "url": "https://github.com/eclipse/eclipse.jdt.ls",
-            "highlightingModeRegex": "^Java$"
+            "highlightingModeRegex": "^Java$",
+            "rootIndicationFilePatterns": [".project",".classpath"]
         },
         "vue": {
             "command": ["vls"],

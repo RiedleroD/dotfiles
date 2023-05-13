@@ -3,6 +3,7 @@ cmaketoolsplugin=false
 compilerexplorer=false
 eslintplugin=false
 externaltoolsplugin=true
+formatplugin=false
 katebacktracebrowserplugin=false
 katebuildplugin=false
 katecloseexceptplugin=false
