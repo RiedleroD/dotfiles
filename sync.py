@@ -8,8 +8,10 @@ from sys import stdout
 import shutil
 from shlex import quote as shesc
 
+from typing import Type, Self
+
 #local file: destination file
-FILES = {
+FILES: dict[str, str] = {
 	#system configs
 	"linux-xanmod.conf": "~/.config/linux-xanmod/myconfig",
 	"makepkg.conf": "/etc/makepkg.conf",
@@ -76,13 +78,13 @@ FILES = {
 	".bin_replacements/":"~/.bin_replacements/"
 }
 
-FMODS = {
+FMODS: dict[str, tuple[str, str]] = {
 	"~/.bin_replacements/":("755","root"),
 	"/etc/makepkg.conf":("644","root"),
 	"/etc/pacman.conf":("644","root")
 }
 
-GSETT = {
+GSETT: dict[str, dict[str, bool | int | str]] = {
 	#bluetooth eats a lot of power, so I disabled auto-startup
 	"org.blueman.plugins.powermanager": {
 		"auto-power-on": False,
@@ -96,100 +98,201 @@ GSETT = {
 	},
 }
 
-#see further down, I don't feel like documenting this.
-URLS = {
-	"DeaDBeeF discord presence plugin":{
-		"type"		:"git",
-		"url"		:"https://github.com/kuba160/ddb_discord_presence.git",
-		"dl_path"	:"/data/diyfs/ddb_discord_presence_plugin",
-		"tag"		:"1.8",
-		"build"		:"make",
-		"src"		:"discord_presence.so",
-		"dst"		:"~/.local/lib/deadbeef/discord_presence.so",
-		"deps"		:("deadbeef-git","discord_arch_electron","wget"),
-	},
-	"DeaDBeeF opus plugin":{
-		"type"		:"git",
-		"url"		:"https://bitbucket.org/Lithopsian/deadbeef-opus.git",
-		"dl_path"	:"/data/diyfs/ddb_opus_plugin",
-		"build"		:"make",
-		"src"		:"opus.so",
-		"dst"		:"~/.local/lib/deadbeef/opus.so",
-		"clean"		:"make clean",
-		"deps"		:("deadbeef-git",),
-	},
-	"DeaDBeeF waveform seekbar plugin":{
-		"type"		:"git",
-		"url"		:"https://github.com/cboxdoerfer/ddb_waveform_seekbar.git",
-		"dl_path"	:"/data/diyfs/ddb_waveform_seekbar",
-		"build"		:"make",
-		"src"		:("./gtk3/ddb_misc_waveform_GTK3.so","./gtk2/ddb_misc_waveform_GTK2.so"),
-		"dst"		:("~/.local/lib/deadbeef/ddb_misc_waveform_GTK3.so","~/.local/lib/deadbeef/ddb_misc_waveform_GTK2.so"),
-		"clean"		:"make clean",
-		"deps"		:("deadbeef-git",),
-	},
-	"LMMS-git":{
-		"type"		:"git",
-		"url"		:"https://github.com/LMMS/lmms.git",
-		"clone_args"	:("--recurse-submodules","-b","master","--depth=1"),
-		"dl_path"	:"/data/diyfs/lmms",
-		"build"		:"mkdir build -p && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../target/ && make",
-		"dst"		:"/data/diyfs/lmms/build/lmms",
-		"deps"		:('libogg','libsndfile','libvorbis','lame','libsamplerate',
-					  'fftw','wine','lilv','fluidsynth','alsa-lib','qt5-base',
-					  'qt5-tools','qt5-x11extras','sdl2','libgig','lv2','stk',
-					  'fltk','perl-list-moreutils','perl-exporter-tiny',
-					  'perl-xml-parser','sdl12-compat','suil'),
-	},
-	"wakatime plugin for kate":{
-		"type"		:"git",
-		"url"		:"https://github.com/Tatsh/kate-wakatime.git",
-		"dl_path"	:"/data/diyfs/wakatime_kate",
-		"build"		:"mkdir build -p && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=/usr && make && sudo make install",
-		"dst"		:"/usr/lib/qt/plugins/ktexteditor/ktexteditor_wakatime.so",
-		"deps"		:("extra-cmake-modules",)
-	},
-	"vspcplay":{
-		"type"		:"git",
-		"url"		:"https://github.com/raphnet/vspcplay.git",
-		"dl_path"	:"/data/diyfs/vspcplay",
-		"build"		:"make",
-		"dst"		:"/data/diyfs/vspcplay/vspcplay",
-	},
-	#from https://musescore.com/groups/young-composers-group/discuss/172224
-	"Default Soundfont":{
-		"type"		:"sh",
-		"url"		:"https://download906.mediafire.com/899n5u59jpjg/maz5z394oog5xlm/HQ+Orchestral+Soundfont+Collection+v3.0.sfArk",
-		"dl_path"	:"~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sfArk",
-		"cmd"		:"sfarkxtc \"$RS_DL_PATH\" \"$RS_DST\"",
-		"dst"		:"~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2",
-		"deps"		:('sfarkxtc',),
-	},
-	"RYTD":{
-		"type"		:"git",
-		"url"		:"https://github.com/RiedleroD/RYTD.git",
-		"dl_path"	:"~/Music/RYTD",
-		"build"		:"sleep 0",
-		"dst"		:"~/Music/RYTD/rytd.py"
-	},
-	"Wallpaper (Arch)":{
-		"type"	:"direct",
-		"url"	:"https://i.imgur.com/2kyvrtg.png",
-		"dst"	:"~/Pictures/wallpaper_arch.png",
-	},
-	"Wallpaper (Links)":{
-		"type"	:"direct",
-		"url"	:"https://i.imgur.com/F9322ei.jpeg",
-		"dst"	:"~/Pictures/wallpaper_links.jpg",
-	},
-	"Wallpaper (Avatar137)":{
-		"type"	:"direct",
-		"url"	:"https://imgur.com/a/cxPOEHM",
-		"dst"	:"~/Pictures/wallpaper_avatar137.jpg",
-	},
-}
+class Downloadable:
+	name: str
+	url: str
+	dst: tuple[str, ...]
+	deps: tuple[str, ...]
+	def __init__(self,
+			name: str,
+			url: str,
+			dst: str | tuple[str, ...],
+			deps: tuple[str, ...] = tuple()):
+		self.name = name
+		self.url = url
+		dst_: tuple[str, ...] = dst if isinstance(dst, tuple) else (dst,)
+		self.dst = tuple(expanduser(fp) for fp in dst_)
+		self.deps = deps
+	def download(self) -> None:
+		raise NotImplementedError()
 
-PKGS = {
+class DownloadableGit(Downloadable):
+	clone_args: tuple[str, ...]
+	dl_path: str
+	tag: str | None
+	build: str
+	src: tuple[str, ...]
+	clean: str
+	def __init__(self,
+			name: str,
+			url: str,
+			dl_path: str,
+			build: str,
+			dst: str | tuple[str, ...],
+			src: str | tuple[str, ...] = tuple(),
+			clean: str = "",
+			clone_args: tuple[str, ...] = tuple(),
+			deps: tuple[str, ...] = tuple(),
+			tag: str | None = None):
+		super().__init__(name, url, dst, deps)
+		self.dl_path = expanduser(dl_path)
+		self.tag = tag
+		self.build = build
+		src_ = src if isinstance(src, tuple) else (src,)
+		self.src = tuple(expanduser(fp) for fp in src_)
+		self.clone_args = clone_args
+		self.clean = clean
+	def download(self) -> None:
+		assert len(self.src) == len(self.dst), \
+			"differing amounts of sources and destinations"
+		
+		if not exists(joinpath(self.dl_path, ".git")):
+			ensure_parent(self.dl_path)
+			lwrite(f"{self.name}: cloning repo")
+			pget("git", "clone", self.url, self.dl_path, *self.clone_args)
+		else:
+			lwrite(f"{self.name}: pulling updates")
+			pget("git", "pull", cwd=self.dl_path)
+		if self.tag is not None:
+			pget("git", "checkout", self.tag, cwd=self.dl_path)
+		lwrite(f"{self.name}: running build")
+		shget(self.build, cwd=self.dl_path)
+		if self.src:
+			lwrite(f"{self.name}: copying files")
+			for srcfn, dstfp in zip(self.src, self.dst):
+				_dstfp: str = expanduser(dstfp)
+				filecopy(joinpath(self.dl_path, srcfn), _dstfp, dstmode=None)
+		if self.clean:
+			lwrite(f"{self.name}: cleaning up")
+			shget(self.clean, cwd=self.dl_path)
+
+class DownloadableDirect(Downloadable):
+	def download(self) -> None:
+		assert len(self.dst) == 1
+		dstfp: str = self.dst[0]
+		ensure_parent(dstfp)
+		shrun(f"curl {shesc(self.url)} -o {shesc(dstfp)} --progress-bar")
+		stdout.write("\r\033[1A\033[2K")#deleting progress bar
+
+class DownloadableSh(Downloadable):
+	dl_path: str
+	cmd: str
+	def __init__(self,
+		name: str,
+		url: str,
+		dst: str | tuple[str, ...],
+		dl_path: str,
+		cmd: str,
+		deps: tuple[str, ...] = tuple()):
+		super().__init__(name, url, dst, deps)
+		self.dl_path = expanduser(dl_path)
+		self.cmd = cmd
+	def download(self) -> None:
+		if not exists(self.dl_path):
+			DownloadableDirect(self.name, self.url, self.dl_path).download()
+		dstfp = self.dst[0]
+		ensure_parent(dstfp)
+		lwrite(f"running command for {self.name}")
+		shget(self.cmd, cwd=dirname(dstfp), env={
+			"RS_DST": dstfp,
+			"RS_DL_PATH": self.dl_path,
+			"RS_URL": self.url
+			})
+
+URLS: tuple[Downloadable, ...] = (
+	DownloadableGit(
+		name			="DeaDBeeF discord presence plugin",
+		url			="https://github.com/kuba160/ddb_discord_presence.git",
+		dl_path		="/data/diyfs/ddb_discord_presence_plugin",
+		tag			="1.8",
+		build		="make",
+		src			="discord_presence.so",
+		dst			="~/.local/lib/deadbeef/discord_presence.so",
+		deps			=("deadbeef-git", "discord_arch_electron", "wget"),
+	),
+	DownloadableGit(
+		name			="DeaDBeeF opus plugin",
+		url			="https://bitbucket.org/Lithopsian/deadbeef-opus.git",
+		dl_path		="/data/diyfs/ddb_opus_plugin",
+		build		="make",
+		src			="opus.so",
+		dst			="~/.local/lib/deadbeef/opus.so",
+		clean		="make clean",
+		deps			=("deadbeef-git",),
+	),
+	DownloadableGit(
+		name			="DeaDBeeF waveform seekbar plugin",
+		url			="https://github.com/cboxdoerfer/ddb_waveform_seekbar.git",
+		dl_path		="/data/diyfs/ddb_waveform_seekbar",
+		build		="make",
+		src			=("./gtk3/ddb_misc_waveform_GTK3.so", "./gtk2/ddb_misc_waveform_GTK2.so"),
+		dst			=("~/.local/lib/deadbeef/ddb_misc_waveform_GTK3.so",
+					  "~/.local/lib/deadbeef/ddb_misc_waveform_GTK2.so"),
+		clean		="make clean",
+		deps			=("deadbeef-git",),
+	),
+	DownloadableGit(
+		name			="LMMS-git",
+		url			="https://github.com/LMMS/lmms.git",
+		clone_args	=("--recurse-submodules", "-b", "master", "--depth=1"),
+		dl_path		="/data/diyfs/lmms",
+		build		="mkdir build -p && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../target/ && make",
+		dst			="/data/diyfs/lmms/build/lmms",
+		deps			=('libogg', 'libsndfile', 'libvorbis', 'lame', 'alsa-lib',
+					  'libsamplerate', 'fftw', 'wine', 'lilv', 'fluidsynth',
+					  'qt5-base', 'qt5-tools', 'qt5-x11extras', 'sdl2', 'lv2',
+					  'libgig', 'stk', 'fltk', 'perl-list-moreutils', 'suil',
+					  'perl-exporter-tiny', 'perl-xml-parser', 'sdl12-compat'),
+	),
+	DownloadableGit(
+		name			="wakatime plugin for kate",
+		url			="https://github.com/Tatsh/kate-wakatime.git",
+		dl_path		="/data/diyfs/wakatime_kate",
+		build		="mkdir build -p && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=/usr && make && sudo make install",
+		dst			="/usr/lib/qt/plugins/ktexteditor/ktexteditor_wakatime.so",
+		deps			=("extra-cmake-modules",)
+	),
+	DownloadableGit(
+		name			="vspcplay",
+		url			="https://github.com/raphnet/vspcplay.git",
+		dl_path		="/data/diyfs/vspcplay",
+		build		="make",
+		dst			="/data/diyfs/vspcplay/vspcplay",
+	),
+	#from https://musescore.com/groups/young-composers-group/discuss/172224
+	DownloadableSh(
+		name			="Default Soundfont",
+		url			="https://download906.mediafire.com/899n5u59jpjg/maz5z394oog5xlm/HQ+Orchestral+Soundfont+Collection+v3.0.sfArk",
+		dl_path		="~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sfArk",
+		cmd			="sfarkxtc \"$RS_DL_PATH\" \"$RS_DST\"",
+		dst			="~/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2",
+		deps			=('sfarkxtc',),
+	),
+	DownloadableGit(
+		name			="RYTD",
+		url			="https://github.com/RiedleroD/RYTD.git",
+		dl_path		="~/Music/RYTD",
+		build		="sleep 0",
+		dst			="~/Music/RYTD/rytd.py"
+	),
+	DownloadableDirect(
+		name			="Wallpaper (Arch)",
+		url			="https://i.imgur.com/2kyvrtg.png",
+		dst			="~/Pictures/wallpaper_arch.png",
+	),
+	DownloadableDirect(
+		name			="Wallpaper (Links)",
+		url			="https://i.imgur.com/F9322ei.jpeg",
+		dst			="~/Pictures/wallpaper_links.jpg",
+	),
+	DownloadableDirect(
+		name			="Wallpaper (Avatar137)",
+		url			="https://i.imgur.com/eU9G6Ax.jpg",
+		dst			="~/Pictures/wallpaper_avatar137.jpg",
+	),
+)
+
+PKGS: dict[str, list[str]] = {
 	"base":[
 		'xdg-user-dirs','kitty','libertinus-font','ttf-joypixels','libcanberra',
 		'otf-font-awesome','brightnessctl','nwg-menu','lxappearance','kvantum',
@@ -215,30 +318,38 @@ PKGS = {
 	"laptop":['tlp','ethtool','smartmontools','slimbookbattery'],
 }
 
-def lclean():
+def lclean() -> None:
 	stdout.write("\r\033[2K")
-def lprint(*args,**kwargs):
+def lprint(*args,**kwargs) -> None:
 	lclean()
 	print(*args,flush=True,**kwargs)
-def lwrite(*args,**kwargs):
+def lwrite(*args,**kwargs) -> None:
 	lprint(*args,end="",**kwargs)
-def linput(*args):
+def linput(*args) -> str:
 	lclean()
 	return input(*args)
 
-#Popen command and return stdout
-pget = lambda *args,**kwargs: run([*args],capture_output=True,**kwargs).stdout.strip().decode('utf-8')
-#Popen command and return exit code
-prun = lambda *args,**kwargs: run([*args],check=True,**kwargs).returncode
-#Popen command with sudo and return exit code
-s_prun = lambda *args,**kwargs: prun("sudo",*args,**kwargs)
-#shell command and return stdout
-shget= lambda cmd,**kwargs: run(cmd,check=True,shell=True,capture_output=True,**kwargs).stdout.strip().decode('utf-8')
-#shell command and return exit code
-shrun= lambda cmd,**kwargs: run(cmd,check=True,shell=True,capture_output=False,**kwargs).returncode
+def pget(*args, **kwargs) -> str:
+	"""Popen command and return stdout"""
+	return run([*args], capture_output=True, **kwargs) \
+		.stdout.strip().decode('utf-8')
+def prun(*args, **kwargs) -> int:
+	"""Popen command and return exit code"""
+	return run([*args], check=True, **kwargs).returncode
+def s_prun(*args, **kwargs) -> int:
+	"""Popen command with sudo and return exit code"""
+	return prun("sudo", *args, **kwargs)
+def shget(cmd: str, **kwargs) -> str:
+	"""shell command and return stdout"""
+	return run(cmd, check=True, shell=True, capture_output=True, **kwargs) \
+		.stdout.strip().decode('utf-8')
+def shrun(cmd: str, **kwargs) -> int:
+	"""shell command and return exit code"""
+	return run(cmd, check=True, shell=True, capture_output=False, **kwargs) \
+		.returncode
 
 #copies a file securely and forcibly
-def filecopy(src,dst,dstmode="644"):
+def filecopy(src: str, dst: str, dstmode: str | None = "644") -> None:
 	if isdir(src):
 		makedirs(dst)
 		for fn in listdir(src):
@@ -252,27 +363,29 @@ def filecopy(src,dst,dstmode="644"):
 	if dstmode is not None:
 		s_prun("chmod",dstmode,dst)
 
-#asks the user yes/no and returns bool
-ask_yn = lambda prompt: linput(f"{prompt} [y/n]: ").strip().lower() == 'y'
-#asks the user sync/update/diff/omit and returns answer
-ask_sudo = lambda prompt: linput(f"{prompt} [s/u/d/o]: ").strip().lower()
+def ask_yn(prompt: str) -> bool:
+	"""asks the user yes/no and returns bool"""
+	return linput(f"{prompt} [y/n]: ").strip().lower() == 'y'
+def ask_sudo(prompt: str) -> str:
+	"""asks the user sync/update/diff/omit and returns answer"""
+	return linput(f"{prompt} [s/u/d/o]: ").strip().lower()
 print("[s/u/d/o] prompts ask if you want to (s)ync to the repo, (u)pdate the repo, display the (d)iff or (o)mit action\n")
 #TODO: parameter to skip all questions and assume yes and sync everywhere
 
-def ensure_parent(fp):
-	parent = dirname(abspath(fp))
+def ensure_parent(fp: str) -> None:
+	parent: str = dirname(abspath(fp))
 	if not isdir(parent):
 		makedirs(parent)
 
 """ --- FILES --- """
 
-def check_files():
+def check_files() -> None:
 	for src, dst in FILES.items():
 		check_file(src,dst)
 	lwrite()
 
-def check_file(src,dst):
-	dst_proper = expanduser(dst)
+def check_file(src: str, dst: str) -> None:
+	dst_proper: str = expanduser(dst)
 	if isdir(src):
 		if isdir(dst_proper):
 			#collecting all filenames from both directories
@@ -315,8 +428,8 @@ def check_file(src,dst):
 			else:
 				break
 
-#checks if files are equal (returns None if second file doesn't exist)
-def are_files_equal(fn1, fp2) -> bool:
+def are_files_equal(fn1: str, fp2: str) -> bool | None:
+	"""checks if files are equal (returns None if second file doesn't exist)"""
 	if isfile(fp2):
 		with open(fn1,'rb') as f:
 			hash1 = hashlib.md5(f.read()).digest()
@@ -326,11 +439,11 @@ def are_files_equal(fn1, fp2) -> bool:
 	else:
 		return None
 
-#sets proper chmod for files
-def chmod_files():
+def chmod_files() -> None:
+	"""sets proper chmod for files"""
 	for fp, mod in FMODS.items():
 		chmod_file(fp,*mod)
-def chmod_file(fp,mod,owner):
+def chmod_file(fp: str, mod: str, owner: str) -> None:
 	fp = expanduser(fp)
 	if exists(fp):
 		s_prun("chmod",mod,fp)
@@ -342,7 +455,7 @@ def chmod_file(fp,mod,owner):
 
 """ --- GSETTINGS --- """
 
-def check_gsettings():
+def check_gsettings() -> None:
 	for group, mappings in GSETT.items():
 		for key, value in mappings.items():
 			lwrite(f"checking gsettings {group}: {key}")
@@ -351,17 +464,18 @@ def check_gsettings():
 					prun("gsettings","set",group,key,value)
 	lwrite()
 
-#checks if gsetting is not a certain value (ignores @-prefixed type annotations)
-def are_gsett_nequal(group,key,value):
-	curval=pget("gsettings","get",group,key)
-	if curval.startswith('@'):
-		curval=curval[curval.index(' ')+1:]
-	typ=type(value)
-	if typ==bool:
+def are_gsett_nequal(group: str, key: str, value: bool | int | str) -> None | str | int:
+	"""checks if gsetting is not a certain value (ignores @-prefixed type annotations)"""
+	strval: str = pget("gsettings","get",group,key)
+	if strval.startswith('@'):
+		curval: str | int = strval[strval.index(' ') + 1:]
+	typ: Type[bool | int | str] = type(value)
+	if typ is bool:
 		value=str(value).lower()
-	elif typ==int:
+	elif typ is int:
 		curval=int(curval)
-	elif typ==str:
+	elif typ is str:
+		assert isinstance(curval,str)#make mypy shut up
 		curval=curval[1:-1]
 	else:
 		raise Exception(f"Unhandled type: {typ}")
@@ -370,85 +484,31 @@ def are_gsett_nequal(group,key,value):
 
 """ --- DOWNLOADS --- """
 
-def check_downloadables():
-	for name,data in URLS.items():
-		dst = data["dst"]
+def check_downloadables() -> None:
+	for data in URLS:
+		dst = data.dst
 		lwrite(f"checking {dst}")
-		if type(dst)==str:
-			dst = expanduser(dst)
-			if not exists(dst):
-				select_downloadable_action(name,data,dst)
-		elif type(dst) in (tuple,list):
-			dst = [expanduser(_dst) for _dst in dst]
-			if not all(exists(_dst) for _dst in dst):
-				select_downloadable_action(name,data,dst)
-		else:
-			raise Exception("Destination(s) can't be other than string or collection")
+		if not all(exists(_dst) for _dst in dst):
+			if not ask_yn(f"Download {data.name}?"):
+				return
+			if len(data.deps)>0:
+				prun("paru","-S",*data.deps,"--needed")
+			data.download()
 	lwrite()
-
-def select_downloadable_action(name,data,dst):
-	if not ask_yn(f"Download {name}?"):
-		return
-	if "deps" in data.keys():
-		prun("paru","-S",*data["deps"],"--needed")
-	typ = data["type"]
-	if typ=="direct":
-		download_direct(data["url"],dst)
-	elif typ=="sh":
-		download_sh(name,data["url"],dst,data["cmd"],expanduser(data["dl_path"]))
-	elif typ=="git":
-		download_git(name,**data)
-	else:
-		lprint(f"{name}: downloadable type '{typ}' not supported")
-
-def download_direct(url,dst):
-	ensure_parent(dst)
-	shrun(f"curl {shesc(url)} -o {shesc(expanduser(dst))} --progress-bar")
-	stdout.write("\r\033[1A\033[2K")#deleting progress bar
-
-def download_sh(name,url,dst,cmd,dl_path):
-	if not isfile(dl_path):
-		download_direct(url,dl_path)
-	ensure_parent(dst)
-	lwrite(f"running command for {name}")
-	shget(cmd,cwd=dirname(dst),env={"RS_DST":dst,"RS_DL_PATH":dl_path,"RS_URL":url})
-
-def download_git(name,url,dl_path,build,dst,src=None,tag=None,clone_args=("--depth=1",),clean="",**kwargs):
-	dl_path = expanduser(dl_path)
-	if src:
-		if type(src)==str:
-			src=(src,)
-		if type(dst)==str:
-			dst=(dst,)
-		assert len(src)==len(dst), "differing amounts of sources and destinations"
-	if not exists(joinpath(dl_path,".git")):
-		ensure_parent(dl_path)
-		lwrite(f"{name}: cloning repo")
-		pget("git","clone",url,dl_path,*clone_args)
-	else:
-		lwrite(f"{name}: pulling updates")
-		pget("git","pull",cwd=dl_path)
-	if tag:
-		pget("git","checkout",tag,cwd=dl_path)
-	lwrite(f"{name}: running build")
-	shget(build,cwd=dl_path)
-	if src:
-		lwrite(f"{name}: copying files")
-		for srcfn,dstfp in zip(src,dst):
-			_dstfp = expanduser(dstfp)
-			filecopy(joinpath(dl_path,srcfn),_dstfp,dstmode=None)
-	if clean:
-		lwrite(f"{name}: cleaning up")
-		shget(clean,cwd=dl_path)
 
 """ --- PACKAGES --- """
 
-def check_packages():
-	installed_pkgs = [line.split(' ')[0] for line in pget("pacman","-Q").split("\n")]
-	installed_pkgs += [line for line in pget("flatpak","list","--columns=application").split("\n")][1:]
-	missing_pkgs = {}
-	toinstall_paru = []
-	toinstall_flatpak = []
+def check_packages() -> None:
+	installed_pkgs: list[str] = \
+		[line.split(' ')[0] for line in pget("pacman", "-Q").split("\n")]
+	installed_pkgs += \
+		[line for line in
+			pget("flatpak", "list", "--columns=application")
+			.split("\n")
+		][1:]
+	missing_pkgs: dict[str, list[str]] = {}
+	toinstall_paru: list[str] = []
+	toinstall_flatpak: list[str] = []
 	for group,pkgs in PKGS.items():
 		lwrite(f"checking {group} for packages")
 		for pkg in pkgs:
