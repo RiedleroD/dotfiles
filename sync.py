@@ -245,14 +245,6 @@ URLS: tuple[Downloadable, ...] = (
 					  'perl-exporter-tiny', 'perl-xml-parser', 'sdl12-compat'),
 	),
 	DownloadableGit(
-		name			="wakatime plugin for kate",
-		url			="https://github.com/Tatsh/kate-wakatime.git",
-		dl_path		="/data/diyfs/wakatime_kate",
-		build		="mkdir build -p && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=/usr && make && sudo make install",
-		dst			="/usr/lib/qt/plugins/ktexteditor/ktexteditor_wakatime.so",
-		deps			=("extra-cmake-modules",)
-	),
-	DownloadableGit(
 		name			="vspcplay",
 		url			="https://github.com/raphnet/vspcplay.git",
 		dl_path		="/data/diyfs/vspcplay",
