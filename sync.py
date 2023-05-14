@@ -244,13 +244,6 @@ URLS: tuple[Downloadable, ...] = (
 					  'libgig', 'stk', 'fltk', 'perl-list-moreutils', 'suil',
 					  'perl-exporter-tiny', 'perl-xml-parser', 'sdl12-compat'),
 	),
-	DownloadableGit(
-		name			="vspcplay",
-		url			="https://github.com/raphnet/vspcplay.git",
-		dl_path		="/data/diyfs/vspcplay",
-		build		="make",
-		dst			="/data/diyfs/vspcplay/vspcplay",
-	),
 	#from https://musescore.com/groups/young-composers-group/discuss/172224
 	DownloadableSh(
 		name			="Default Soundfont",
@@ -306,7 +299,7 @@ PKGS: dict[str, list[str]] = {
 		'flameshot','engrampa','discord_arch_electron','org.gimp.GIMP',
 		'steam-native-runtime','libreoffice-fresh','org.inkscape.Inkscape',
 		'kile','org.chromium.Chromium','firefox','carla','obs-studio','imv',
-		'pavucontrol','lmms'],
+		'pavucontrol','lmms','vspcplay'],
 	"laptop":['tlp','ethtool','smartmontools','slimbookbattery'],
 }
 
