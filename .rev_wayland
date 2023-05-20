@@ -10,6 +10,5 @@ export GDK_BACKEND=wayland
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
 export SDL_VIDEODRIVER=wayland
-# commented until wlroots#3550 gets merged
-# https://gitlab.freedesktop.org/wlroots/wlroots/-/merge_requests/3550
-#export WLR_RENDERER=vulkan
+#wlroots itself should render in vulkan
+export WLR_RENDERER=vulkan
