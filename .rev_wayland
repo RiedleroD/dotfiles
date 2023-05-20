@@ -8,7 +8,9 @@ export XDG_CURRENT_DESKTOP=sway
 #setting some backends to wayland
 export GDK_BACKEND=wayland
 export MOZ_ENABLE_WAYLAND=1
-export QT_QPA_PLATFORM=wayland
 export SDL_VIDEODRIVER=wayland
+#make qt use wayland & disable window decorations
+export QT_QPA_PLATFORM=wayland
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 #wlroots itself should render in vulkan
 export WLR_RENDERER=vulkan
