@@ -452,8 +452,11 @@ def check_gsettings() -> None:
 def are_gsett_nequal(group: str, key: str, value: bool | int | str) -> None | str | int:
 	"""checks if gsetting is not a certain value (ignores @-prefixed type annotations)"""
 	strval: str = pget("gsettings","get",group,key)
+	curval: str | int
 	if strval.startswith('@'):
-		curval: str | int = strval[strval.index(' ') + 1:]
+		curval = strval[strval.index(' ') + 1:]
+	else:
+		curval = strval
 	typ: Type[bool | int | str] = type(value)
 	if typ is bool:
 		value=str(value).lower()
