@@ -13,4 +13,5 @@ export SDL_VIDEODRIVER=wayland
 export QT_QPA_PLATFORM=wayland
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 #wlroots itself should render in vulkan
-export WLR_RENDERER=vulkan
+# note: crashes for reasons I don't understand
+#export WLR_RENDERER=vulkan
