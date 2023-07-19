@@ -31,6 +31,7 @@ FILES: dict[str, str] = {
 	"polybar.conf": "~/.config/polybar/config.ini",#taskbar for X11
 	"mako.conf": "~/.config/mako/config",#notification daemon for Wayland
 	"dunst.conf": "~/.config/dunst/dunstrc",#notification daemon for X11
+	"wallplaster.sh": "~/wallplaster.sh",#wallpaper changing script
 	#X11 Stuff
 	".Xresources": "~/.Xresources",
 	".xinitrc": "~/.xinitrc",
