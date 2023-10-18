@@ -291,7 +291,7 @@ PKGS: dict[str, list[str]] = {
 		'network-manager-applet','htop','autoconf','automake','binutils','grep',
 		'wine','cmake','file','findutils','flex','gawk','gcc','gettext','groff',
 		'blueman','m4','make','patch','pkgconf','sed','sudo','texinfo','which',
-		'git','python-pip','python-mutagen','dhcpcd','exa','flatpak'],
+		'git','python-pip','python-mutagen','dhcpcd','flatpak'],
 	"wayland":['sway','waybar','xorg-xwayland','bemenu-wayland','mako','swayidle',
 		'xdg-desktop-portal-wlr','xdg-desktop-portal-gtk','swaylock-effects'],
 	"xorg":['i3-wm','polybar','i3lock','bemenu-x11','dunst'],
