@@ -32,6 +32,7 @@ FILES: dict[str, str] = {
 	"mako.conf": "~/.config/mako/config",#notification daemon for Wayland
 	"dunst.conf": "~/.config/dunst/dunstrc",#notification daemon for X11
 	"wallplaster.sh": "~/wallplaster.sh",#wallpaper changing script
+	"lockscreen.png": "~/Pictures/lockscreen.png",
 	#X11 Stuff
 	".Xresources": "~/.Xresources",
 	".xinitrc": "~/.xinitrc",
