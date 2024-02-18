@@ -18,6 +18,8 @@ export EDITOR=nano
 export QT_QPA_PLATFORMTHEME=qt5ct
 #gtk3 needs to know where the configs lie
 export XDG_CONFIG_HOME=/home/riedler/.config
+#gtk4 is a little bitch
+export GTK_THEME="Arc-Dark"
 #jawa awt needs this
 export _JAVA_AWT_WM_NONREPARENTING=1
 # set java home to java version selected by archlinux-java
