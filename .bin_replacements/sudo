@@ -1,3 +1,2 @@
 #!/usr/bin/sh
-echo -en "\a"
-exec /usr/bin/sudo "$@"
+exec /usr/bin/sudo -B "$@"

@@ -1,2 +1,2 @@
 #!/usr/bin/sh
-/usr/bin/umount "$@" && canberra-gtk-play -i device-removed
+/usr/bin/umount "$@" && playEvSound.sh device-removed
