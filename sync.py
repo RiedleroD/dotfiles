@@ -295,7 +295,7 @@ PKGS: dict[str, list[str]] = {
 		'git','python-pip','python-mutagen','dhcpcd','flatpak','flatseal'],
 	"wayland":['sway','waybar','xorg-xwayland','bemenu-wayland','mako','swayidle',
 		'xdg-desktop-portal-wlr','xdg-desktop-portal-gtk','swaylock-effects',
-		'slurp','grim','wl-clipboard'],
+		'slurp','grim','wl-clipboard','swww'],
 	"xorg":['i3-wm','polybar','i3lock','bemenu-x11','dunst'],
 	"userspace":[
 		'pcmanfm-gtk3','deadbeef-git','helvum','com.github.IsmaelMartinez.teams_for_linux',
