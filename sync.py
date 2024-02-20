@@ -349,6 +349,8 @@ def filecopy(src: str, dst: str, dstmode: str | None = "644") -> None:
 			s_prun("cp",src,dst)
 	if dstmode is not None:
 		s_prun("chmod",dstmode,dst)
+		if isdir(dst): # dirs should always be listable
+			s_prun("chmod","+x",dst)
 
 def ask_yn(prompt: str) -> bool:
 	"""asks the user yes/no and returns bool"""
