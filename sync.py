@@ -282,7 +282,7 @@ URLS: tuple[Downloadable, ...] = (
 PKGS: dict[str, list[str]] = {
 	"base":[
 		'xdg-user-dirs','kitty','libertinus-font','ttf-joypixels','libcanberra',
-		'otf-font-awesome','brightnessctl','nwg-menu','lxappearance','kvantum',
+		'otf-font-awesome','nwg-menu','lxappearance','kvantum',
 		'qt5ct','qt6ct','kvantum-theme-arc','arc-gtk-theme','papirus-icon-theme',
 		'deepin-icon-theme','pipewire','pipewire-pulse','pipewire-jack','dex',
 		'pipewire-alsa','pipewire-v4l2','gzip','libtool','gst-plugin-pipewire',
@@ -303,7 +303,7 @@ PKGS: dict[str, list[str]] = {
 		'steam-native-runtime','libreoffice-fresh','org.inkscape.Inkscape',
 		'kile','org.chromium.Chromium','firefox','carla','obs-studio','imv',
 		'pavucontrol','lmms','vspcplay','kate'],
-	"laptop":['tlp','ethtool','smartmontools','slimbookbattery'],
+	"laptop":['tlp','ethtool','smartmontools','slimbookbattery','brightnessctl'],
 }
 
 def lclean() -> None:
