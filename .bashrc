@@ -17,7 +17,6 @@ fi
 
 # aliases for common programs
 alias rytd="python3 ~/Music/RYTD/rytd.py"
-alias ls=exa
 #kittens
 alias diff="kitty +kitten diff"
 
