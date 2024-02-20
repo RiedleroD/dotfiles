@@ -302,7 +302,7 @@ PKGS: dict[str, list[str]] = {
 		'engrampa','discord_arch_electron','org.gimp.GIMP',
 		'steam-native-runtime','libreoffice-fresh','org.inkscape.Inkscape',
 		'kile','org.chromium.Chromium','firefox','carla','obs-studio','imv',
-		'pavucontrol','lmms','vspcplay','kate','kwrite'],
+		'pavucontrol','lmms','vspcplay','kate'],
 	"laptop":['tlp','ethtool','smartmontools','slimbookbattery'],
 }
 
