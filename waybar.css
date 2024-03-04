@@ -58,19 +58,17 @@ widget>*{
     color: #FFF;
 }
 
-#window,
-#workspaces {
+#window{
     margin: 0 2px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+#workspaces {
+    margin:0 -2px;
 }
 
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+#mpris.playing {
+    padding-right:15px;
+    background:linear-gradient(to left,rgba(0,0,0,0) 0px,rgba(0,0,0,0.4) 13px)
 }
 
 #clock {
@@ -110,12 +108,14 @@ label:focus {
     background-color: #000000;
 }
 
-#cpu {
+#cpu,
+#temperature.cpu {
     background-color: #2ecc71;
     color: #000000;
 }
 
-#memory {
+#memory,
+#temperature.memory{
     background-color: #9b59b6;
 }
 
