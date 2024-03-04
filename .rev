@@ -22,5 +22,9 @@ export XDG_CONFIG_HOME=/home/riedler/.config
 export GTK_THEME="Arc-Dark"
 #jawa awt needs this
 export _JAVA_AWT_WM_NONREPARENTING=1
-# set java home to java version selected by archlinux-java
+#java >8 needs this
+export AWT_TOOLKIT=MToolkit
+#set java home to java version selected by archlinux-java
 export JAVA_HOME=/usr/lib/jvm/default
+#java options
+export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
