@@ -33,6 +33,7 @@ FILES: dict[str, str] = {
 	"dunst.conf": "~/.config/dunst/dunstrc",#notification daemon for X11
 	"wallplaster.sh": "~/wallplaster.sh",#wallpaper changing script
 	"lockscreen.png": "~/Pictures/lockscreen.png",
+	"musicpicker.css": "~/.config/wofi/musicselect.css",#style file for custom music player picker
 	#X11 Stuff
 	".Xresources": "~/.Xresources",
 	".xinitrc": "~/.xinitrc",
@@ -295,7 +296,7 @@ PKGS: dict[str, list[str]] = {
 		'git','python-pip','python-mutagen','dhcpcd','flatpak','com.github.tchx84.Flatseal'],
 	"wayland":['sway','waybar','xorg-xwayland','bemenu-wayland','mako','swayidle',
 		'xdg-desktop-portal-wlr','xdg-desktop-portal-gtk','swaylock-effects',
-		'slurp','grim','wl-clipboard','swww'],
+		'slurp','grim','wl-clipboard','swww','wofi'],
 	"xorg":['i3-wm','polybar','i3lock','bemenu-x11','dunst'],
 	"userspace":[
 		'pcmanfm-gtk3','deadbeef-git','helvum','com.github.IsmaelMartinez.teams_for_linux',
