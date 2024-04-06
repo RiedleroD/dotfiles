@@ -5,5 +5,5 @@
 filename="$(date +%s).png"
 filepath="$HOME/Pictures/screenshots/$filename"
 
-grim -g "$(slurp)" -l 9 -c "$filepath"
+grim -g "$(slurp)" -l 9 "$filepath"
 wl-copy < "$filepath"
