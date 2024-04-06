@@ -1,0 +1,6 @@
+QTabBar,
+QHeaderView,
+QDockWidget::title {
+	font-family: Bahnschrift;
+	font-variant: Condensed;
+}

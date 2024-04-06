@@ -40,9 +40,9 @@ FILES: dict[str, str] = {
 	"xsettingsd.conf": "~/.config/xsettingsd/xsettingsd.conf",
 	#graphical toolkit configurations
 	"qt5ct.conf": "~/.config/qt5ct/qt5ct.conf",#qt5ct redirects qt5 rendering to kvantum
-	"qt5ct_spinboxes.qss": "~/.config/qt5ct/qss/spinboxes.qss",
+	"qt5ct_qss/": "~/.config/qt5ct/qss/",
 	"qt6ct.conf": "~/.config/qt6ct/qt6ct.conf",#qt5ct redirects qt5 rendering to kvantum
-	"qt6ct_spinboxes.qss": "~/.config/qt6ct/qss/spinboxes.qss",
+	"qt6ct_qss/": "~/.config/qt6ct/qss/",
 	"kvantum.kvconfig": "~/.config/Kvantum/kvantum.kvconfig",#kvantum renders qt5 stuff better
 	"ArcDark.kvconfig": "~/.config/Kvantum/ArcDark#/ArcDark#.kvconfig",
 	"KvArcDark.kvconfig": "~/.config/Kvantum/KvArcDark#/KvArcDark#.kvconfig",
