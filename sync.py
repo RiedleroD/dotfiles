@@ -99,6 +99,9 @@ GSETT: dict[str, dict[str, bool | int | str]] = {
 		"cursor-theme": "bloom",
 		"font-name": "Libertinus Sans 11",
 	},
+	"org.gnome.desktop.wm.preferences": {
+		"theme": "Arc-Dark",
+	},
 }
 
 class Downloadable:
