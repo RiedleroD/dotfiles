@@ -18,6 +18,7 @@ FILES: dict[str, str] = {
 	"pacman.conf": "/etc/pacman.conf",
 	"journald.conf": "/etc/systemd/journald.conf",
 	"dhcpcd.conf": "/etc/dhcpcd.conf",
+	"pamdlogin": "/etc/pam.d/login",
 	#shell configs
 	".bash_profile": "~/.bash_profile",
 	".bashrc": "~/.bashrc",
@@ -84,7 +85,8 @@ FILES: dict[str, str] = {
 FMODS: dict[str, tuple[str, str]] = {
 	"~/.bin_replacements/":("755","root"),
 	"/etc/makepkg.conf":("644","root"),
-	"/etc/pacman.conf":("644","root")
+	"/etc/pacman.conf":("644","root"),
+	"/etc/pam.d/login":("644","root")
 }
 
 GSETT: dict[str, dict[str, bool | int | str]] = {
@@ -292,7 +294,7 @@ PKGS: dict[str, list[str]] = {
 		'pipewire-alsa','pipewire-v4l2','gzip','libtool','gst-plugin-pipewire',
 		'yt-dlp','opusfile','p7zip','unrar','sdl2','archlinux-keyring',
 		'bison','fakeroot','gnome-themes-extra','gtk-engine-murrine','gvfs-nfs',
-		'gvfs-smb','wireplumber','bemenu',
+		'gvfs-smb','wireplumber','bemenu','kwallet','kwalletmanager','kwallet-pam',
 		'network-manager-applet','htop','autoconf','automake','binutils','grep',
 		'wine','cmake','file','findutils','flex','gawk','gcc','gettext','groff',
 		'blueman','m4','make','patch','pkgconf','sed','sudo','texinfo','which',
