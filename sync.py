@@ -75,6 +75,7 @@ FILES: dict[str, str] = {
 	"deadbeef.conf": "~/.config/deadbeef/config",
 	"playlist0.dbpl": "~/.config/deadbeef/playlists/0.dbpl",
 	"playlist1.dbpl": "~/.config/deadbeef/playlists/1.dbpl",
+	"playlist2.dbpl": "~/.config/deadbeef/playlists/2.dbpl",
 	# RYTD is my music synchronization script
 	"playlist.rpl": "~/Music/default.rpl",
 	".rytdconf": "~/Music/RYTD/.rytdconf",
