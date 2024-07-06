@@ -3,28 +3,30 @@
 # Riedler Environment Variables
 #
 
-#ignore duplicate entries in command history
-export HISTCONTROL=ignoreboth:erasedups
-#the only correct tab size
+# add local bin folder to PATH
+export PATH=/home/riedler/.bin_replacements:/home/riedler/.local/bin:$PATH
+# the only correct tab size
 tabs 4
-# to tell SDL where ma good stuff is
-export SDL_SOUNDFONTS="/home/riedler/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2"
-#SDL2 now supports pipewire
-export SDL_AUDIODRIVER=pipewire
 # fuck vim
-export VISUAL="kate -b" #this is especially funny in non-graphical environments
+export VISUAL="kate -b" # this is especially funny in non-graphical environments
 export EDITOR=nano
-#toolkit styling
+# SDL stuff
+export SDL_SOUNDFONTS="/home/riedler/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2"
+export SDL_AUDIODRIVER=pipewire
+# toolkit styling
 export QT_QPA_PLATFORMTHEME=qt6ct
-#gtk3 needs to know where the configs lie
-export XDG_CONFIG_HOME=/home/riedler/.config
-#gtk4 is a little bitch
-export GTK_THEME="Arc-Dark"
-#jawa awt needs this
-export _JAVA_AWT_WM_NONREPARENTING=1
-#java >8 needs this
-export AWT_TOOLKIT=MToolkit
-#set java home to java version selected by archlinux-java
-export JAVA_HOME=/usr/lib/jvm/default
-#java options
+export XDG_CONFIG_HOME=/home/riedler/.config # gtk3 is a little bitch
+export GTK_THEME="Arc-Dark" # gtk4 is a little bitch
+# java options
 export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+export _JAVA_AWT_WM_NONREPARENTING=1 # jawa awt needs this on wayland
+export AWT_TOOLKIT=MToolkit # java >8 needs this… I think?
+export JAVA_HOME=/usr/lib/jvm/default # set java home to java version selected by archlinux-java
+# defaults
+export BROWSER="firefox"
+# aliases for common programs
+alias rytd="python3 ~/Music/RYTD/rytd.py"
+alias diff="kitty +kitten diff"
+alias info="info -v link-style=cyan,underline -v active-link-style=cyan,underline,standout -v match-style=bgyellow,black,bold"
+
+printf "loaded .rev | " >&2

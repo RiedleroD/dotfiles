@@ -15,3 +15,5 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 #wlroots itself should render in vulkan
 # note: crashes for reasons I don't understand
 #export WLR_RENDERER=vulkan
+
+printf "loaded .rev_wayland | " >&2

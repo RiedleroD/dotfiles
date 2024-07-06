@@ -22,6 +22,8 @@ FILES: dict[str, str] = {
 	# shell configs
 	".bash_profile": "~/.bash_profile",
 	".bashrc": "~/.bashrc",
+	".zprofile": "~/.zprofile",
+	".zshrc": "~/.zshrc",
 	".rev": "~/.rev",
 	".rev_wayland": "~/.rev_wayland",
 	# desktop environment configs
@@ -302,7 +304,8 @@ PKGS: dict[str, list[str]] = {
 		'network-manager-applet','htop','autoconf','automake','binutils','grep',
 		'wine','cmake','file','findutils','flex','gawk','gcc','gettext','groff',
 		'blueman','m4','make','patch','pkgconf','sed','sudo','texinfo','which',
-		'git','python-pip','python-mutagen','dhcpcd','flatpak','com.github.tchx84.Flatseal'],
+		'git','python-pip','python-mutagen','dhcpcd','flatpak','com.github.tchx84.Flatseal',
+		'zsh','bash'],
 	"wayland":['sway','waybar','xorg-xwayland','bemenu-wayland','mako','swayidle',
 		'xdg-desktop-portal-wlr','xdg-desktop-portal-gtk','swaylock-effects',
 		'slurp','grim','wl-clipboard','swww','wofi'],
