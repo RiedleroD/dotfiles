@@ -4,7 +4,7 @@ import re
 from base64 import b64decode
 from sys import exit
 
-with Popen(["playerctl", "-l", "-i", "kdeconnect"], stdout=PIPE) as p:
+with Popen(["playerctl", "-l"], stdout=PIPE) as p:
 	players = p.communicate()[0].decode("utf8").strip().split("\n")
 
 if len(players) == 0 or (len(players) == 1 and players[0] == ''):
