@@ -1,2 +1,6 @@
 #!/usr/bin/sh
-exec /usr/bin/discord --force-device-scale-factor=0.75 "$@"
+
+# a recent update broke this parameter, so I'll just have giant fucking discord for now
+#exec /usr/bin/discord --force-device-scale-factor=0.75 "$@"
+
+exec /usr/bin/discord "$@"
