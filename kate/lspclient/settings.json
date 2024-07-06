@@ -17,9 +17,9 @@
             "rootIndicationFilePatterns": [".project",".classpath"]
         },
         "vue": {
-            "command": ["vls"],
+            "command": ["vue-language-server", "--stdio"],
             "root": ".",
-            "url": "https://www.npmjs.com/package/vls"
+            "url": "https://github.com/vuejs/language-tools"
         },
         "sql_": {
             "command": ["sql-language-server","up","--method","stdio"],
@@ -31,6 +31,11 @@
             "command": ["sqls","-config","./sqls.yml"],
             "url": "https://github.com/lighttiger2505/sqls",
             "root": "."
+        },
+        "dart": {
+            "command": ["fvm","dart","language-server"],
+            "url": "https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md",
+            "rootIndicationFilePatterns": ["pubspec.yaml",".fvmrc"]
         },
         "c_": {
             "command": ["ccls"],
