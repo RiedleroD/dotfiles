@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+if [[ "$3" == '' ]]; then
+	echo "usage: $0 <from> <to> <string>"
+	exit 1
+fi
+
+query="$(xxd -p <<< "$3" | tr -d '\n' | sed -E 's/.{2}/%&/g')"
+res="$(curl -s 'https://translate.googleapis.com/translate_a/single?client=gtx&sl='"$1"'&tl='"$2"'&dt=t&ie=UTF-8&oe=UTF-8&otf=1&ssel=0&tsel=0&kc=7&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&q='"$query")"
+
+jq -r '"'"$1"': \(.[0][0][1])\n'"$2"': \(.[0][0][0])"' <<< "$res"
