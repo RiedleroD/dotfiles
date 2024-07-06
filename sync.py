@@ -310,9 +310,9 @@ PKGS: dict[str, list[str]] = {
 		'slurp','grim','wl-clipboard','swww','wofi'],
 	"xorg":['i3-wm','polybar','i3lock','bemenu-x11','dunst'],
 	"userspace":[
-		'pcmanfm-gtk3','deadbeef-git','helvum','com.github.IsmaelMartinez.teams_for_linux',
-		'engrampa','discord_arch_electron','org.gimp.GIMP',
-		'steam-native-runtime','libreoffice-fresh','org.inkscape.Inkscape',
+		'pcmanfm-gtk3','deadbeef-git','helvum',
+		'engrampa','discord_arch_electron','gimp',
+		'steam-native-runtime','libreoffice-fresh','inkscape',
 		'kile','org.chromium.Chromium','firefox','carla','obs-studio','imv',
 		'pavucontrol','lmms','vspcplay','kate'],
 	"laptop":['tlp','ethtool','smartmontools','slimbookbattery','brightnessctl'],
