@@ -1,98 +1,19 @@
 #!/usr/bin/env python3
+from confreader import Config
+from helper import lwrite, linput, pget, prun, s_prun, shget, shrun
 
 import hashlib
 from os.path import isfile, isdir, exists, expanduser, dirname, abspath, join as joinpath
-from subprocess import run
-from os import listdir, makedirs, chdir
+from os import listdir, makedirs
 from sys import stdout
 import shutil
 from shlex import quote as shesc
 
 from typing import Type
 
-# go into ./dotfiles/ folder
-chdir(joinpath(dirname(__file__), 'dotfiles'))
-
-# local file: destination file
-FILES: dict[str, str] = {
-	# system configs
-	"linux-xanmod.conf": "~/.config/linux-xanmod/myconfig",
-	"makepkg.conf": "/etc/makepkg.conf",
-	"pacman.conf": "/etc/pacman.conf",
-	"journald.conf": "/etc/systemd/journald.conf",
-	"dhcpcd.conf": "/etc/dhcpcd.conf",
-	"pamdlogin": "/etc/pam.d/login",
-	# shell configs
-	".bash_profile": "~/.bash_profile",
-	".bashrc": "~/.bashrc",
-	".zprofile": "~/.zprofile",
-	".zshrc": "~/.zshrc",
-	".rev": "~/.rev",
-	".rev_wayland": "~/.rev_wayland",
-	# desktop environment configs
-	"sway.conf": "~/.config/sway/config", # window manager for Wayland
-	"i3.conf": "~/.config/i3/config", # window manager for X11,
-	"waybar.conf": "~/.config/waybar/config", # taskbar for wayland
-	"waybar.css": "~/.config/waybar/style.css", # -||-
-	"polybar.conf": "~/.config/polybar/config.ini", # taskbar for X11
-	"mako.conf": "~/.config/mako/config", # notification daemon for Wayland
-	"dunst.conf": "~/.config/dunst/dunstrc", # notification daemon for X11
-	"wallplaster.sh": "~/wallplaster.sh", # wallpaper changing script
-	"lockscreen.png": "~/Pictures/lockscreen.png",
-	"musicpicker.css": "~/.config/wofi/musicselect.css", # style file for custom music player picker
-	# X11 Stuff
-	".Xresources": "~/.Xresources",
-	".xinitrc": "~/.xinitrc",
-	"xsettingsd.conf": "~/.config/xsettingsd/xsettingsd.conf",
-	# graphical toolkit configurations
-	"qt5ct.conf": "~/.config/qt5ct/qt5ct.conf", # qt5ct redirects qt5 rendering to kvantum
-	"qt5ct_qss/": "~/.config/qt5ct/qss/",
-	"qt6ct.conf": "~/.config/qt6ct/qt6ct.conf", # qt5ct redirects qt5 rendering to kvantum
-	"qt6ct_qss/": "~/.config/qt6ct/qss/",
-	"kvantum.kvconfig": "~/.config/Kvantum/kvantum.kvconfig", # kvantum renders qt5 stuff better
-	"ArcDark.kvconfig": "~/.config/Kvantum/ArcDark#/ArcDark#.kvconfig",
-	"KvArcDark.kvconfig": "~/.config/Kvantum/KvArcDark#/KvArcDark#.kvconfig",
-	".gtkrc-2.0": "~/.gtkrc-2.0", # gtk2 is old as shit but ppl still use it
-	"gtk2-filechooser.ini": "~/.config/gtk-2.0/gtkfilechooser.ini",
-	"gtk3.ini": "~/.config/gtk-3.0/settings.ini", # for gtk3 and gtk4
-	# audio config
-	"pipewire.conf": "~/.config/pipewire/pipewire.conf",
-	# font configs
-	"fonts.conf": "~/.config/fontconfig/fonts.conf",
-	# userspace configs
-	"pcmanfm.conf": "~/.config/pcmanfm/default/pcmanfm.conf", # file manager
-	"kitty.conf": "~/.config/kitty/kitty.conf", # terminal
-	"./.lmmsrc.xml": "~/.lmmsrc.xml", # LMMS - my DAW
-	"htoprc": "~/.config/htop/htoprc",
-	".nanorc": "~/.config/nano/nanorc",
-	"userChrome.css": "~/.mozilla/firefox/aec833c0.default-release/chrome/userChrome.css", # custom CSS for Firefox UI
-	"kilerc": "~/.config/kilerc", # kile, a latex editor
-	# stuff from kate - text editor & half an IDE
-	"kate/": "~/.config/kate/",
-	"kate.kmessagebox": "~/.config/kate.kmessagebox",
-	"kate-externaltoolspluginrc": "~/.config/kate-externaltoolspluginrc",
-	"katerc": "~/.config/katerc",
-	"katesessions/": "/home/riedler/.local/share/kate/sessions/",
-	# Template files
-	"./templates/": "~/Templates/",
-	# deadbeef config + playlists
-	"deadbeef.conf": "~/.config/deadbeef/config",
-	"playlist0.dbpl": "~/.config/deadbeef/playlists/0.dbpl",
-	"playlist1.dbpl": "~/.config/deadbeef/playlists/1.dbpl",
-	"playlist2.dbpl": "~/.config/deadbeef/playlists/2.dbpl",
-	# RYTD is my music synchronization script
-	"playlist.rpl": "~/Music/default.rpl",
-	".rytdconf": "~/Music/RYTD/.rytdconf",
-	# custom executables (mostly rerouting and fixed args)
-	".bin_replacements/": "~/.bin_replacements/"
-}
-
-FMODS: dict[str, tuple[str, str]] = {
-	"~/.bin_replacements/": ("755", "root"),
-	"/etc/makepkg.conf": ("644", "root"),
-	"/etc/pacman.conf": ("644", "root"),
-	"/etc/pam.d/login": ("644", "root")
-}
+# TODO: better interface with Config class
+FILES = Config.get_files()
+FMODS = Config.get_fmods()
 
 GSETT: dict[str, dict[str, bool | int | str]] = {
 	# bluetooth eats a lot of power, so I disabled auto-startup
@@ -321,36 +242,6 @@ PKGS: dict[str, list[str]] = {
 	"laptop":['tlp','ethtool','smartmontools','slimbookbattery','brightnessctl'],
 }
 
-def lclean() -> None:
-	stdout.write("\r\033[2K")
-def lprint(*args, **kwargs) -> None:
-	lclean()
-	print(*args, flush=True, **kwargs)
-def lwrite(*args, **kwargs) -> None:
-	lprint(*args, end="", **kwargs)
-def linput(*args) -> str:
-	lclean()
-	return input(*args)
-
-def pget(*args, **kwargs) -> str:
-	"""Popen command and return stdout"""
-	return run([*args], capture_output=True, **kwargs) \
-		.stdout.strip().decode('utf-8')
-def prun(*args, **kwargs) -> int:
-	"""Popen command and return exit code"""
-	return run([*args], check=True, **kwargs).returncode
-def s_prun(*args, **kwargs) -> int:
-	"""Popen command with sudo and return exit code"""
-	return prun("sudo", *args, **kwargs)
-def shget(cmd: str, **kwargs) -> str:
-	"""shell command and return stdout"""
-	return run(cmd, check=True, shell=True, capture_output=True, **kwargs) \
-		.stdout.strip().decode('utf-8')
-def shrun(cmd: str, **kwargs) -> int:
-	"""shell command and return exit code"""
-	return run(cmd, check=True, shell=True, capture_output=False, **kwargs) \
-		.returncode
-
 # copies a file securely and forcibly
 def filecopy(src: str, dst: str, dstmode: str | None = "644") -> None:
 	if isdir(src):
@@ -393,45 +284,44 @@ def check_files() -> None:
 	lwrite()
 
 def check_file(src: str, dst: str) -> None:
-	dst_proper: str = expanduser(dst)
 	if isdir(src):
-		if isdir(dst_proper):
+		if isdir(dst):
 			# collecting all filenames from both directories
 			filenames = listdir(src)
-			for fn in listdir(dst_proper):
+			for fn in listdir(dst):
 				if fn not in filenames:
 					filenames.append(fn)
 			
 			for fn in filenames:
 				check_file(joinpath(src, fn), joinpath(dst, fn))
 			return
-		elif not exists(dst_proper):
+		elif not exists(dst):
 			if ask_yn(f"Folder not present. copy {src} to {dst}?"):
-				filecopy(src, dst_proper)
+				filecopy(src, dst)
 			return
 		else:
 			raise Exception("Source and Destination have to be the same type: either file or folder!")
 	elif not exists(src):
 		if ask_yn(f"File not present. copy {dst} to {src}?"):
-			filecopy(dst_proper, src)
+			filecopy(dst, src)
 		return
-	elif not exists(dst_proper):
+	elif not exists(dst):
 		if ask_yn(f"File not present. copy {src} to {dst}?"):
-			filecopy(src, dst_proper)
+			filecopy(src, dst)
 		return
 	
 	lwrite(f"checking file {src}")
-	if not are_files_equal(src, dst_proper):
+	if not are_files_equal(src, dst):
 		while True:
 			s_u_d_o = ask_sudo(f"{dst} differs from {src}.")
 			if s_u_d_o == 's':
-				filecopy(src, dst_proper)
+				filecopy(src, dst)
 				break
 			elif s_u_d_o == 'u':
-				filecopy(dst_proper, src, "666")
+				filecopy(dst, src, "666")
 				break
 			elif s_u_d_o == 'd':
-				shrun(f"kitty +kitten diff {shesc(src)} {shesc(expanduser(dst))}")
+				shrun(f"kitty +kitten diff {shesc(src)} {shesc(dst)}")
 				continue
 			else:
 				break
@@ -452,7 +342,6 @@ def chmod_files() -> None:
 	for fp, mod in FMODS.items():
 		chmod_file(fp, *mod)
 def chmod_file(fp: str, mod: str, owner: str) -> None:
-	fp = expanduser(fp)
 	if exists(fp):
 		s_prun("chmod", mod, fp)
 		s_prun("chown", owner, fp)
