@@ -59,7 +59,6 @@ FILES: dict[str, str] = {
 	# userspace configs
 	"pcmanfm.conf": "~/.config/pcmanfm/default/pcmanfm.conf", # file manager
 	"kitty.conf": "~/.config/kitty/kitty.conf", # terminal
-	"flameshot.ini": "~/.config/flameshot/flameshot.ini", # screenshotter
 	"./.lmmsrc.xml": "~/.lmmsrc.xml", # LMMS - my DAW
 	"htoprc": "~/.config/htop/htoprc",
 	".nanorc": "~/.config/nano/nanorc",
