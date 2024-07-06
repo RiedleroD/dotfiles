@@ -3,12 +3,15 @@
 import hashlib
 from os.path import isfile, isdir, exists, expanduser, dirname, abspath, join as joinpath
 from subprocess import run
-from os import listdir, makedirs
+from os import listdir, makedirs, chdir
 from sys import stdout
 import shutil
 from shlex import quote as shesc
 
 from typing import Type
+
+# go into ./dotfiles/ folder
+chdir(joinpath(dirname(__file__), 'dotfiles'))
 
 # local file: destination file
 FILES: dict[str, str] = {
