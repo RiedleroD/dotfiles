@@ -22,6 +22,7 @@ GSETT: dict[str, dict[str, bool | int | str]] = {
 	},
 	# gtk stuff
 	"org.gnome.desktop.interface": {
+		"color-scheme": "prefer-dark",
 		"gtk-theme": "Arc-Dark",
 		"icon-theme": "Papirus-Dark",
 		"cursor-theme": "bloom",
