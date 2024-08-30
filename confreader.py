@@ -40,9 +40,6 @@ class Config:
 				params = shget(f"{helper} {line}").split("\n")
 				params = [param for param in params if len(param) > 0]
 				
-				if len(params) > 0:
-					print(params)
-				
 				match len(params):
 					case 0:
 						continue
