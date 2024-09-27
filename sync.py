@@ -213,6 +213,11 @@ URLS: tuple[Downloadable, ...] = (
 		url			="https://i.imgur.com/eU9G6Ax.jpg",
 		dst			="~/Pictures/wallpaper_avatar137.jpg",
 	),
+	DownloadableDirect(
+		name		="Riedler Logo (Transflag 2)",
+		url			="https://riedler.wien/resource/Riedler_transflag_2.png",
+		dst			="~/Pictures/logos/riedler_transflag/Riedler_transflag_2.png",
+	),
 )
 
 PKGS: dict[str, list[str]] = {
