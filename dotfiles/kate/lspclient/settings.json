@@ -1,6 +1,6 @@
 {
     "servers": {
-	"php": {
+        "php": {
             "command": ["intelephense","--stdio"],
             "url": "https://intelephense.com/",
             "root": "."
