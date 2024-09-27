@@ -15,10 +15,9 @@ export VISUAL="kate -b" # this is especially funny in non-graphical environments
 export EDITOR=nano
 # SDL stuff
 export SDL_SOUNDFONTS="/home/riedler/lmms/samples/soundfonts/HQ Orchestral Soundfont Collection v3.0.sf2"
-export SDL_AUDIODRIVER=pipewire
+export SDL_AUDIODRIVER="pipewire,alsa"
 # toolkit styling
 export QT_QPA_PLATFORMTHEME=qt6ct
-export XDG_CONFIG_HOME=/home/riedler/.config # gtk3 is a little bitch
 export GTK_THEME="Arc-Dark" # gtk4 is a little bitch
 # java options
 export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
