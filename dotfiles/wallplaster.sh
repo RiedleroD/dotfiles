@@ -7,22 +7,29 @@
 export SWWW_TRANSITION_FPS=60
 export SWWW_TRANSITION_STEP=255
 
-#making sure only one is running at a time
+# making sure only one wallplaster is running at a time
 
 LOCKFILE=/tmp/.wallplaster_id
 
-if test -f "$LOCKFILE";then
+if [[ -f "$LOCKFILE" ]];then
 	prevpid=$(cat "$LOCKFILE");
 	kill $prevpid
 	#wait for process to be killed
-	while kill -0 $prevpid 2>/dev/null; do sleep 0.25; done;
+	while kill SIGTERM $prevpid 2>/dev/null; do sleep 0.25; done;
+	rm /tmp/.wallplaster_id
 	echo "killed previously running instance"
+fi
+
+# starting swww if not started already
+swwwsock="/run/user/$(id -u $USER)/swww-$WAYLAND_DISPLAY.socket"
+if [[ ! -e "$swwwsock" ]];then
+	swww-daemon & # yeah why not, fuck it
 fi
 
 #put current pid in lockfile so it can be terminated when the script is started again
 echo $$ > "$LOCKFILE"
 
-#stopping swww and removing the lockfile when the script is terminated
+#removing the lockfile when the script is terminated
 trap 'rm /tmp/.wallplaster_id' EXIT
 
 # This controls (in seconds) when to switch to the next image
@@ -30,12 +37,7 @@ INTERVAL=$((5 * 60))
 
 while true; do
 	find ~/Pictures/wallpapers/* \
-		| while read -r img; do
-			echo "$((RANDOM % 1000)):$img"
-		done \
-		| sort -n | cut -d':' -f2- \
-		| while read -r img; do
-			swww img "$img" --transition-type wipe
-			sleep $INTERVAL
-		done
+		| sort -R | head -n1 \
+		| xargs swww img --transition-type wipe
+	sleep 300
 done
