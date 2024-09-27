@@ -1,0 +1,22 @@
+window {
+	border-radius: .5em;
+}
+
+#outer-box {
+	border-radius: .5em;
+	border: solid 1px #000;
+}
+
+#input {
+	border-radius: .5em .5em 0 0;
+	border: none;
+}
+#input image.left {
+	color: transparent;
+}
+
+#entry {
+	border-radius: 0;
+	outline: none;
+	border: none;
+}
