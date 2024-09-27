@@ -3,6 +3,9 @@
 # Riedler Environment Variables
 #
 
+# set XDG paths
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
 # add local bin folder to PATH
 export PATH=/home/riedler/.bin_replacements:/home/riedler/.local/bin:$PATH
 # the only correct tab size
