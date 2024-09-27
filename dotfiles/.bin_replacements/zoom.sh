@@ -1,8 +1,11 @@
 #!/usr/bin/bash
 
 set -euo pipefail
-curscale=$(swaymsg -t get_outputs | jq -r '.. | select(.focused?) | .scale')
+screeninfo=$(swaymsg --pretty -t get_outputs | grep "focused" -A 10)
+screenid=$(echo "$screeninfo" | head -n1 | sed -E 's/Output ([^ ]+) .+/\1/')
+curscale=$(echo "$screeninfo" | grep "Scale factor:" | grep -oP '\d+(\.\d+)?')
 
+echo "screen: $screenid"
 echo "curscale: $curscale"
 scale=$curscale # init
 
