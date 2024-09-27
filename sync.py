@@ -3,7 +3,7 @@ from confreader import Config
 from helper import lwrite, linput, pget, prun, s_prun, shget, shrun
 
 import hashlib
-from os.path import isfile, isdir, exists, expanduser, dirname, abspath, join as joinpath
+from os.path import isfile, isdir, exists, expanduser, dirname, abspath, relpath, join as joinpath
 from os import listdir, makedirs
 from sys import stdout
 import shutil
@@ -297,24 +297,24 @@ def check_file(src: str, dst: str) -> None:
 				check_file(joinpath(src, fn), joinpath(dst, fn))
 			return
 		elif not exists(dst):
-			if ask_yn(f"Folder not present. copy {src} to {dst}?"):
+			if ask_yn(f"Folder not present. copy {relpath(src)} to {dst}?"):
 				filecopy(src, dst)
 			return
 		else:
 			raise Exception("Source and Destination have to be the same type: either file or folder!")
 	elif not exists(src):
-		if ask_yn(f"File not present. copy {dst} to {src}?"):
+		if ask_yn(f"File not present. copy {dst} to {relpath(src)}?"):
 			filecopy(dst, src)
 		return
 	elif not exists(dst):
-		if ask_yn(f"File not present. copy {src} to {dst}?"):
+		if ask_yn(f"File not present. copy {relpath(src)} to {dst}?"):
 			filecopy(src, dst)
 		return
 	
 	lwrite(f"checking file {src}")
 	if not are_files_equal(src, dst):
 		while True:
-			s_u_d_o = ask_sudo(f"{dst} differs from {src}.")
+			s_u_d_o = ask_sudo(f"{dst} differs from {relpath(src)}.")
 			if s_u_d_o == 's':
 				filecopy(src, dst)
 				break

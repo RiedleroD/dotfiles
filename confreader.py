@@ -69,12 +69,12 @@ class SyncFile:
 		mode: int | None = None,
 		owner: str | None = None
 	):
-		self.fullpath = fullpath
+		self.fullpath = realpath(fullpath)
 		
 		if dstpath is not None:
 			self.dstpath = dstpath
 		else:
-			self.dstpath = basename(fullpath)
+			self.dstpath = basename(self.fullpath)
 		
 		if mode is not None:
 			assert 0 <= mode < 1000
